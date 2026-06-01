@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clubs & Extracurriculars | Campus Compass Amrita Amaravati</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Immediate Theme Initialization to Prevent Flash of Unstyled Content
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amrita: {
+                maroon: '#800020',
+                maroonHover: '#6a001a',
+                maroonLight: '#fcf2f4',
+                gold: '#D4AF37',
+                goldHover: '#bfa02c',
+                goldLight: '#fdf9eb',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .navigation-link-active {
+        color: #D4AF37;
+        border-bottom: 2px solid #D4AF37;
+      }
+
+      /* Premium Dark Mode Global Overrides */
+      .dark {
+        color-scheme: dark;
+      }
+      .dark body {
+        background-color: #0b0f19 !important;
+        color: #f1f5f9 !important;
+      }
+      .dark header {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu a {
+        color: #e2e8f0 !important;
+      }
+      .dark #mobile-menu a:hover {
+        background-color: #1e293b !important;
+        color: #fff !important;
+      }
+      .dark .bg-white {
+        background-color: #0f172a !important;
+      }
+      .dark .border-gray-100, 
+      .dark .border-gray-200, 
+      .dark .border-gray-200\/80 {
+        border-color: #1e293b !important;
+      }
+      .dark .text-gray-900 {
+        color: #f8fafc !important;
+      }
+      .dark .text-gray-800 {
+        color: #f1f5f9 !important;
+      }
+      .dark .text-gray-750 {
+        color: #cbd5e1 !important;
+      }
+      .dark .text-gray-700 {
+        color: #e2e8f0 !important;
+      }
+      .dark .text-gray-600 {
+        color: #94a3b8 !important;
+      }
+      .dark .text-gray-500 {
+        color: #64748b !important;
+      }
+      .dark .bg-\[\#F9FAFB\] {
+        background-color: #0b0f19 !important;
+      }
+      .dark .border-t {
+        border-color: #1e293b !important;
+      }
+      /* Welcome block and dashboard cards */
+      .dark .bg-\[\#FDFBF7\] {
+        background-color: #111827 !important;
+        border-color: rgba(212, 175, 55, 0.2) !important;
+      }
+      .dark .bg-gray-50 {
+        background-color: #161e2e !important;
+      }
+      .dark .bg-gray-100 {
+        background-color: #1e293b !important;
+      }
+      .dark .bg-orange-50 {
+        background-color: rgba(234, 88, 12, 0.1) !important;
+        color: #ffedd5 !important;
+      }
+      .dark .bg-emerald-50 {
+        background-color: rgba(16, 185, 129, 0.1) !important;
+        color: #d1fae5 !important;
+      }
+      .dark .bg-blue-50 {
+        background-color: rgba(59, 130, 246, 0.1) !important;
+        color: #dbeafe !important;
+      }
+      .dark .bg-purple-50 {
+        background-color: rgba(139, 92, 246, 0.1) !important;
+        color: #f3e8ff !important;
+      }
+      .dark .bg-indigo-50 {
+        background-color: rgba(99, 102, 241, 0.1) !important;
+        color: #e0e7ff !important;
+      }
+      .dark .navigation-link-active {
+        color: #D4AF37 !important;
+        border-bottom-color: #D4AF37 !important;
+      }
+      .dark nav a:not(.navigation-link-active) {
+        color: #cbd5e1 !important;
+      }
+      .dark nav a:not(.navigation-link-active):hover {
+        color: #D4AF37 !important;
+      }
+      .dark .text-gray-950 {
+        color: #f8fafc !important;
+      }
+      /* Hover states for cards */
+      .dark .hover\:shadow-md:hover {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+      }
+      .dark .hover\:-translate-y-1:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      /* High-Accessibility Dark Mode Overrides for University & State Badges */
+      .dark .text-amrita-maroon,
+      .dark .text-\[\#800020\] {
+        color: #ff9fb1 !important; /* Premium WCAG-compliant light rose/maroon */
+      }
+      .dark .bg-amrita-maroonLight {
+        background-color: rgba(128, 0, 32, 0.15) !important;
+        color: #ff9fb1 !important;
+        border-color: rgba(255, 159, 177, 0.2) !important;
+      }
+      .dark .text-amrita-gold {
+        color: #f6d258 !important; /* Saturated gold for high readability */
+      }
+      .dark .bg-amrita-goldLight {
+        background-color: rgba(212, 175, 55, 0.12) !important;
+        color: #f6d258 !important;
+        border-color: rgba(212, 175, 55, 0.25) !important;
+      }
+
+      /* Alert, Stats, Card Background and Text Color Theme Merging adjustments */
+      .dark .text-red-955,
+      .dark .text-red-950,
+      .dark .text-red-900,
+      .dark .text-red-800,
+      .dark .text-red-700 {
+        color: #fca5a5 !important; /* red-300 */
+      }
+      .dark .bg-red-50,
+      .dark .bg-red-50\/70,
+      .dark .bg-red-50\/50,
+      .dark .bg-red-50\/30,
+      .dark .bg-red-100 {
+        background-color: rgba(239, 68, 68, 0.12) !important;
+        border-color: rgba(239, 68, 68, 0.25) !important;
+      }
+
+      .dark .text-emerald-955,
+      .dark .text-emerald-950,
+      .dark .text-emerald-900,
+      .dark .text-emerald-800,
+      .dark .text-emerald-700 {
+        color: #6ee7b7 !important; /* emerald-300 */
+      }
+      .dark .bg-emerald-55,
+      .dark .bg-emerald-50\/70,
+      .dark .bg-emerald-50\/50,
+      .dark .bg-emerald-50\/30,
+      .dark .bg-emerald-100 {
+        background-color: rgba(16, 185, 129, 0.12) !important;
+        border-color: rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .dark .text-blue-955,
+      .dark .text-blue-950,
+      .dark .text-blue-900,
+      .dark .text-blue-800,
+      .dark .text-blue-700 {
+        color: #93c5fd !important; /* blue-300 */
+      }
+      .dark .bg-blue-50\/70,
+      .dark .bg-blue-50\/50,
+      .dark .bg-blue-50\/30,
+      .dark .bg-blue-100 {
+        background-color: rgba(59, 130, 246, 0.12) !important;
+        border-color: rgba(59, 130, 246, 0.25) !important;
+      }
+
+      .dark .text-purple-955,
+      .dark .text-purple-950,
+      .dark .text-purple-900,
+      .dark .text-purple-800,
+      .dark .text-purple-700 {
+        color: #c084fc !important; /* purple-300 */
+      }
+      .dark .bg-purple-50\/70,
+      .dark .bg-purple-50\/50,
+      .dark .bg-purple-50\/30,
+      .dark .bg-purple-100 {
+        background-color: rgba(139, 92, 246, 0.12) !important;
+        border-color: rgba(139, 92, 246, 0.25) !important;
+      }
+
+      .dark .text-indigo-955,
+      .dark .text-indigo-950,
+      .dark .text-indigo-900,
+      .dark .text-indigo-800,
+      .dark .text-indigo-700 {
+        color: #a5b4fc !important; /* indigo-300 */
+      }
+      .dark .bg-indigo-50\/70,
+      .dark .bg-indigo-50\/50,
+      .dark .bg-indigo-50\/30,
+      .dark .bg-indigo-100 {
+        background-color: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+      }
+
+      .dark .text-orange-955,
+      .dark .text-orange-950,
+      .dark .text-orange-900,
+      .dark .text-orange-850,
+      .dark .text-orange-800,
+      .dark .text-orange-700 {
+        color: #fdba74 !important; /* orange-300 */
+      }
+
+      /* Hover States and Interactive Card Backgrounds in Dark Mode */
+      .dark .hover\:bg-white:hover {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      .dark .hover\:bg-gray-50:hover {
+        background-color: #161e2e !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F9FAFB] dark:bg-slate-950 font-sans text-gray-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-350">
+
+    <!-- Global Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo Section -->
+          <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="bg-amrita-maroon w-12 h-12 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-105 shadow-md">
+              <i class="fa-solid fa-compass text-2xl text-amrita-gold"></i>
+            </div>
+            <div>
+              <span class="block font-display text-xl font-bold text-amrita-maroon tracking-tight">Campus Compass</span>
+              <span class="block font-mono text-[10px] text-gray-500 tracking-wider uppercase">Amrita Amaravati • July 2026</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-1">
+            <a href="index.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Home</a>
+            <a href="academics.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Academic Life</a>
+            <a href="clubs.html" class="px-3 py-2 text-sm font-medium navigation-link-active transition-colors hover:text-amrita-gold">Clubs & Cultural</a>
+            <a href="hostel.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Campus & Hostel</a>
+            <a href="survival.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Survival Kit</a>
+            <a href="tools.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Tech Tools</a>
+          </nav>
+
+          <!-- Right Action Hand -->
+          <div class="hidden lg:flex items-center">
+            <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+              <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+              Freshers Batch July 2026
+            </span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-btn" type="button" class="text-gray-500 hover:text-amrita-maroon focus:outline-none p-2" aria-label="Toggle Navigation">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+        <a href="index.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Home</a>
+        <a href="academics.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Academic Life</a>
+        <a href="clubs.html" class="block px-4 py-2.5 rounded-md text-sm font-semibold bg-amrita-maroon text-white animate-fade-in">Clubs & Cultural</a>
+        <a href="hostel.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Campus & Hostel</a>
+        <a href="survival.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Survival Kit</a>
+        <a href="tools.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Tech Tools</a>
+        <div class="pt-4 border-t border-gray-100 flex items-center justify-center">
+          <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+            <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+            Freshers Batch July 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      
+      <!-- Page Title -->
+      <section class="bg-amrita-maroon text-white py-12 border-b border-amrita-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <nav class="flex space-x-2 font-mono text-xs text-amrita-gold mb-3 uppercase">
+                <a href="index.html" class="hover:underline">Home</a>
+                <span>/</span>
+                <span class="text-white">Clubs Handbook</span>
+              </nav>
+              <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Clubs & Extracurricular Ecosystem</h1>
+              <p class="text-sm sm:text-md text-gray-200 mt-2 max-w-2xl">
+                Balance classroom lectures with hacking arenas, music jams, and competitive teams to forge real-world profiles. <span class="text-amrita-gold font-medium">Includes our Interactive Campus Events Photo Gallery!</span>
+              </p>
+            </div>
+            <div class="bg-white/10 px-6 py-4 rounded-xl border border-white/10 flex items-center space-x-4">
+              <div class="text-amrita-gold text-3xl"><i class="fa-solid fa-images text-amber-400 animate-pulse"></i></div>
+              <div>
+                <span class="block text-xs font-mono uppercase text-gray-300">Live Campus Gallery</span>
+                <span class="block text-sm font-semibold text-white">5 Recent Captures</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Split Layout Intro -->
+      <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-display text-3xl font-extrabold text-gray-900 tracking-tight">Technical Hubs vs. Cultural & Sports Associations</h2>
+            <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              Join exactly <span class="font-semibold text-amrita-maroon">one Technical club</span> for development skills, and <span class="font-semibold text-amrita-maroon">one Cultural/Sports club</span> for balance and networking.
+            </p>
+          </div>
+
+          <!-- Split Two-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Left Column: Technical Hubs -->
+            <div class="space-y-8">
+              <div class="flex items-center space-x-3 pb-4 border-b border-gray-200">
+                <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg shadow-sm">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <h3 class="font-display text-xl font-bold text-gray-900">Technical Hubs (Development & Hacking)</h3>
+              </div>
+
+              <!-- Tech Club 1 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-indigo-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-indigo-100 text-indigo-800 font-semibold px-2 py-1 rounded">Amrita Tech Events</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-trophy text-amrita-gold mr-1"></i> Signature Hub</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">Chakravyaha (The Tech Events Guild)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  The premier tech events and competitive coding guild. They design and host Amrita’s signature engineering tournaments, capture-the-flag (CTF) security contests, and algorithmic challenges to crack recruitment barriers.
+                </p>
+                <div class="mt-4 pt-3 border-t border-indigo-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-indigo-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Builds leadership, coordinates mega university fests, and develops rigorous algorithmic problem-solving stamina.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tech Club 2 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-indigo-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-indigo-100 text-indigo-800 font-semibold px-2 py-1 rounded">Hackathons & Dev Sprints</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-rocket text-indigo-600 mr-1"></i> Intense Builders</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">Prachurya (The Hack Club & Dev Space)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  A high-octane builders' playground for building full-stack applications, mobile apps, and systems engineering. They organize overnight hackathons, system design bootcamps, and open-source contribution sprints.
+                </p>
+                <div class="mt-4 pt-3 border-t border-indigo-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-indigo-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Drives full-stack portfolio building with continuous 30-hour multi-track code sprints and real deployment pipelines.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tech Club 3 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-indigo-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-indigo-100 text-indigo-800 font-semibold px-2 py-1 rounded">AI & Deep Learning</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-brain mr-1 text-purple-500 animate-pulse"></i> Intelligent Systems</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">ReLu (The Artificial Intelligence Club)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  Named after the Rectified Linear Unit activation function, ReLu is Amrita Amaravati's premier neural networks and AI research group. They build active projects spanning Large Language Models (LLMs), deep learning, computer vision, and tensor pipeline optimization.
+                </p>
+                <div class="mt-4 pt-3 border-t border-indigo-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-indigo-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Demystifies state-of-the-art machine intelligence. Hands-on model engineering, weights training, and API proxy development.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Cultural & Sports Associations -->
+            <div class="space-y-8">
+              <div class="flex items-center space-x-3 pb-4 border-b border-gray-200">
+                <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-lg shadow-sm">
+                  <i class="fa-solid fa-guitar"></i>
+                </div>
+                <h3 class="font-display text-xl font-bold text-gray-900">Cultural & Creative Associations (Sanity & Bond)</h3>
+              </div>
+
+              <!-- Cult Club 1 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-rose-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-rose-100 text-rose-800 font-semibold px-2 py-1 rounded">Music & Vocal Resonance</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-guitar mr-1 text-rose-500"></i> Melodic Heartbeat</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">Saptaswara (Acoustic & Fusion Music Club)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  The official musical heartbeat of the campus. Saptaswara nurtures classical ragas, acoustic bands, and western fusion, conducting weekly open-air garden jam sessions and backing all primary cultural events.
+                </p>
+                <div class="mt-4 pt-3 border-t border-rose-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-rose-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Critical acoustic workspace to unlock rhythmic talents, de-stress, and form close collaborative friendships.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cult Club 2 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-rose-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-rose-100 text-rose-800 font-semibold px-2 py-1 rounded">Video & Photography</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-camera mr-1 text-indigo-500"></i> Cinematic Eye</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">Drisya (Filmmaking & Photography Club)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  The modern content engine and visual gallery creator of Amrita Amaravati. Drisya is a high-impact filmmakers' and photographers' alliance hosting 28-day film challenges, screenplay writing bootcamps, and digital design masterclasses.
+                </p>
+                <div class="mt-4 pt-3 border-t border-rose-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-rose-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Prepares you for screen directing, editing, videography, and advanced photographic setups. Integrates creative technology with visual aesthetics.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cult Club 3 -->
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-rose-200 transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xs font-mono bg-rose-100 text-rose-800 font-semibold px-2 py-1 rounded">Dance & Choreography</span>
+                  <span class="text-xs font-semibold text-gray-500"><i class="fa-solid fa-child-reaching mr-1 text-emerald-500"></i> Rhythmic Motion</span>
+                </div>
+                <h4 class="font-display text-lg font-bold text-gray-900 mb-2">Nithyasparsh (The Dance Club)</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                  The energetic expressions and choreography federation of Amrita. Nithyasparsh celebrates classical Bharatanatyam, contemporary hip-hop, and energetic fusion performances that light up regional and inter-college cultural festivals.
+                </p>
+                <div class="mt-4 pt-3 border-t border-rose-200/50 flex items-start">
+                  <div class="text-[10px] font-mono text-rose-700 font-semibold uppercase mr-2 mt-0.5 flex-shrink-0">Why It Matters:</div>
+                  <p class="text-xs text-gray-800 font-medium">
+                    Inspires spatial design, synchronicity, stage confidence, and physical fitness through fluid rhythmic performance.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Clubs and Extracurricular Activity Gallery Section -->
+      <section class="py-16 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amrita-maroon/10 text-amrita-maroon dark:bg-amrita-gold/10 dark:text-amrita-gold mb-3">
+              <i class="fa-solid fa-camera mr-1.5"></i> Interactive Gallery
+            </span>
+            <h2 class="font-display text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Clubs & Cultural Life Gallery</h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+              Witness actual event posters, campus custom branding setups, and student-powered initiatives in action. Tap on any item to read senior-verified contexts or zoom into full scale.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button onclick="filterGallery('all', this)" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all shadow-sm border border-transparent bg-amrita-maroon text-white cursor-pointer hover:bg-amrita-maroonHover">
+              All Guilds
+            </button>
+            <button onclick="filterGallery('creative', this)" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all shadow-sm border border-gray-200 text-gray-700 bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700">
+              Creative & Cultural
+            </button>
+            <button onclick="filterGallery('tech', this)" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all shadow-sm border border-gray-200 text-gray-700 bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700">
+              Tech & Academic
+            </button>
+            <button onclick="filterGallery('sports', this)" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all shadow-sm border border-gray-200 text-gray-700 bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700">
+              Sports & Active
+            </button>
+          </div>
+
+          <!-- Gallery Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+             <!-- Card 1: Sacred Altar and Puja Observances -->
+             <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="creative" data-index="0" onclick="openLightbox(0)">
+               <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                 <img src="/src/assets/images/club_spiritual_1780322330402.png" alt="Amma and Shivalinga Puja Setup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                   <span class="text-white text-xs font-medium flex items-center">
+                     <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                   </span>
+                 </div>
+               </div>
+               <div class="mt-4 px-1 pb-2">
+                 <div class="flex justify-between items-start mb-1 gap-2">
+                   <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">Sacred Altar and Puja Observances</h3>
+                   <span class="text-[10px] font-mono font-bold text-red-600 bg-red-100 dark:bg-red-950/40 dark:text-red-400 px-2 py-0.5 rounded uppercase font-semibold whitespace-nowrap">Tradition</span>
+                 </div>
+                 <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                   Beautifully decorated Shiva Lingam with floral garlands paired with the protective portrait of Chancellor Mother Amma in a wooden frame.
+                 </p>
+               </div>
+             </div>
+
+            <!-- Card 2: Hack X Amrita 2.0 -->
+            <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="tech" data-index="1" onclick="openLightbox(1)">
+              <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                <img src="/src/assets/images/club_hackathon_1780322358276.png" alt="Hack X Amrita 2.0 Hackathon Arena" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span class="text-white text-xs font-medium flex items-center">
+                    <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4 px-1 pb-2">
+                <div class="flex justify-between items-start mb-1 gap-2">
+                  <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">Hack X Amrita 2.0</h3>
+                  <span class="text-[10px] font-mono font-bold text-red-600 bg-red-100 dark:bg-red-950/50 dark:text-red-400 px-2 py-0.5 rounded uppercase whitespace-nowrap">Hackathon</span>
+                </div>
+                <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                  Hack X Amrita 2.0 — 30-Hour Innovation Sprints. Grand physical cutout letters and branding setups configured right at the campus entries by seniors.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: Film Forge Alpha Edition -->
+            <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="creative" data-index="2" onclick="openLightbox(2)">
+              <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                <img src="/src/assets/images/club_filmforge_1780322380332.png" alt="Film Forge Filmmaking Challenge banner" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span class="text-white text-xs font-medium flex items-center">
+                    <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4 px-1 pb-2">
+                <div class="flex justify-between items-start mb-1 gap-2">
+                  <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">Film Forge Alpha Edition</h3>
+                  <span class="text-[10px] font-mono font-bold text-amber-600 bg-amber-100 dark:bg-amber-950/40 dark:text-amber-400 px-2 py-0.5 rounded uppercase whitespace-nowrap">Media & Film</span>
+                </div>
+                <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                  Film Forge: 28-Day Filmmaking Challenge. Official cinematic posters and high-energy flyers crafted by Drisya’s screen production crew.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Inter Campus Tournament -->
+            <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="sports" data-index="3" onclick="openLightbox(3)">
+              <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                <img src="/src/assets/images/club_sports_1780322404295.png" alt="Inter Campus Football Tournament Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span class="text-white text-xs font-medium flex items-center">
+                    <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4 px-1 pb-2">
+                <div class="flex justify-between items-start mb-1 gap-2">
+                  <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">Inter Campus Tournament</h3>
+                  <span class="text-[10px] font-mono font-bold text-emerald-600 bg-emerald-100 dark:bg-emerald-950/50 dark:text-emerald-400 px-2 py-0.5 rounded uppercase whitespace-nowrap">Sports</span>
+                </div>
+                <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                  Inter Campus Football Tournament (Amaravati Campus). Full-throttle sports campaigns, dynamic matches, and athletic excellence.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 5: Drishya Casting Call -->
+            <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="creative" data-index="4" onclick="openLightbox(4)">
+              <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                <img src="/src/assets/images/club_casting_1780322430425.png" alt="Drishya Casting Call creative poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span class="text-white text-xs font-medium flex items-center">
+                    <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4 px-1 pb-2">
+                <div class="flex justify-between items-start mb-1 gap-2">
+                  <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">Drishya Casting Call</h3>
+                  <span class="text-[10px] font-mono font-bold text-purple-600 bg-purple-100 dark:bg-purple-950/40 dark:text-purple-400 px-2 py-0.5 rounded uppercase whitespace-nowrap font-semibold">Clubs</span>
+                </div>
+                <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                  Drishya Creative Club — Auditions & Casting Calls. Artistically styled call-to-theatre designed to scout next-generation fine screen actors.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 6: National Pride Assembly -->
+            <div class="gallery-card bg-gray-50 dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-800/80 p-3 hover:shadow-xl hover:shadow-gray-200/40 dark:hover:shadow-black/20 transition-all duration-300 group cursor-pointer" data-category="creative" data-index="5" onclick="openLightbox(5)">
+              <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-200 dark:bg-slate-800">
+                <img src="/src/assets/images/campus_bg_1780303973818.png" alt="Indian National Flag flying on campus grounds" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span class="text-white text-xs font-medium flex items-center">
+                    <i class="fa-solid fa-expand mr-1.5"></i> Open Fullscreen
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4 px-1 pb-2">
+                <div class="flex justify-between items-start mb-1 gap-2">
+                  <h3 class="font-display font-bold text-gray-900 dark:text-white text-sm">National Pride Assembly</h3>
+                  <span class="text-[10px] font-mono font-bold text-blue-600 bg-blue-100 dark:bg-blue-950/50 dark:text-blue-400 px-2 py-0.5 rounded uppercase whitespace-nowrap">Campus View</span>
+                </div>
+                <p class="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+                  Tricolor Flag Hoisting Against the Main Block Skyline. The tricolor Indian National Flag waving on campus grounds during glorious standard assembly hours.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Lightbox Modal -->
+      <div id="gallery-lightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 select-none">
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-amrita-gold text-2xl transition-colors cursor-pointer p-2 rounded-full hover:bg-white/10" aria-label="Close Lightbox">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <!-- Prev Button -->
+        <button onclick="changeLightboxImage(-1)" class="absolute left-6 text-white hover:text-amrita-gold text-3xl transition-colors cursor-pointer p-3 rounded-full hover:bg-white/10 hidden md:block" aria-label="Previous Image">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <!-- Next Button -->
+        <button onclick="changeLightboxImage(1)" class="absolute right-6 text-white hover:text-amrita-gold text-3xl transition-colors cursor-pointer p-3 rounded-full hover:bg-white/10 hidden md:block" aria-label="Next Image">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Image & Caption Container -->
+        <div class="max-w-4xl w-full flex flex-col items-center">
+          <img id="lightbox-img" src="" alt="Lightbox Zoom" class="max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10 transition-all duration-300" referrerPolicy="no-referrer">
+          <span id="lightbox-counter" class="mt-4 text-[10px] font-mono text-gray-400 uppercase tracking-widest">1 of 5</span>
+          <h4 id="lightbox-caption" class="mt-2 text-md font-display font-bold text-white text-center">Image Title</h4>
+          <p id="lightbox-desc" class="mt-1 text-xs text-gray-300 text-center max-w-xl leading-relaxed">Image descriptions here.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Timeline Banner: How to Join -->
+      <section class="py-16 bg-amrita-maroonLight border-t border-amrita-maroon/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="font-mono text-xs text-amrita-maroon font-bold uppercase tracking-wider">The Process Defined</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">How & When to Join the Guilds</h2>
+            <p class="text-sm text-gray-600 mt-2">
+              Recruitment is formal, standardized, and competitive. Follow this exact timeline to secure your induction.
+            </p>
+          </div>
+
+          <!-- Vertical Timeline Implementation -->
+          <div class="max-w-4xl mx-auto">
+            <div class="relative border-l-2 border-amrita-gold/40 ml-4 md:ml-32">
+              
+              <!-- Step 1 -->
+              <div class="mb-10 relative">
+                <!-- Dot -->
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amrita-maroon border-2 border-white shadow"></div>
+                <!-- Time Label for desktop -->
+                <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-amrita-maroon">
+                  Week 1 — 2
+                </div>
+                <div class="ml-6 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <span class="md:hidden block font-mono text-xs font-bold text-amrita-maroon mb-1">Week 1 — 2</span>
+                  <h4 class="font-display font-bold text-gray-900 text-sm">Orientation & Freshers Stalls</h4>
+                  <p class="text-xs text-gray-600 mt-1">
+                    Meet student clubs at corridors stalls during official freshman events. Chat with senior members, ask about commitments, and collect pamphlets.
+                  </p>
+                  <span class="inline-block font-mono text-[10px] text-gray-400 mt-2 uppercase">Action: Zero eligibility filters. Just explore!</span>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="mb-10 relative">
+                <!-- Dot -->
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amrita-maroon border-2 border-white shadow"></div>
+                <!-- Time Label for desktop -->
+                <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-amrita-maroon">
+                  Week 3
+                </div>
+                <div class="ml-6 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <span class="md:hidden block font-mono text-xs font-bold text-amrita-maroon mb-1">Week 3</span>
+                  <h4 class="font-display font-bold text-gray-900 text-sm">Official Email Loops & Application Forms</h4>
+                  <p class="text-xs text-gray-600 mt-1">
+                    Monitor your <span class="font-semibold text-amrita-maroon">@am.students.amrita.edu</span> inbox. Submit standardized application forms sent by the Student Affairs Council.
+                  </p>
+                  <span class="inline-block font-mono text-[10px] text-amrita-maroon font-bold mt-2 uppercase"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Critical Step: Make sure your form answers are genuine.</span>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="mb-10 relative">
+                <!-- Dot -->
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amrita-maroon border-2 border-white shadow"></div>
+                <!-- Time Label for desktop -->
+                <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-amrita-maroon">
+                  Week 4
+                </div>
+                <div class="ml-6 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <span class="md:hidden block font-mono text-xs font-bold text-amrita-maroon mb-1">Week 4</span>
+                  <h4 class="font-display font-bold text-gray-900 text-sm">Selection Interviews & Hack Rounds</h4>
+                  <p class="text-xs text-gray-600 mt-1">
+                    Attend physical evaluations in assigned classrooms. Tech clubs conduct coding tasks or review project portfolios. Cultural clubs host active performance auditions.
+                  </p>
+                  <span class="inline-block font-mono text-[10px] text-gray-400 mt-2 uppercase">Tip: Seniors search for passion and consistency, not expert status.</span>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="relative">
+                <!-- Dot -->
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+                <!-- Time Label for desktop -->
+                <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-emerald-600">
+                  Week 5
+                </div>
+                <div class="ml-6 bg-white p-5 rounded-xl border border-emerald-200 shadow-sm bg-emerald-50/20">
+                  <span class="md:hidden block font-mono text-xs font-bold text-emerald-600 mb-1">Week 5</span>
+                  <h4 class="font-display font-bold text-gray-900 text-sm">Final Result Release & Onboarding</h4>
+                  <p class="text-xs text-gray-600 mt-1">
+                    Induction lists are published via official emails or Microsoft Teams rooms. Inductions start immediately with introductory tasks and senior meetups.
+                  </p>
+                  <span class="inline-block font-mono text-[10px] text-emerald-600 font-bold mt-2 uppercase">Ready to Sprint!</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-[#111827] text-gray-400 py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800">
+          
+          <!-- Column 1: Info -->
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="bg-amrita-maroon w-8 h-8 rounded flex items-center justify-center text-white">
+                <i class="fa-solid fa-compass text-sm text-amrita-gold"></i>
+              </div>
+              <span class="font-display text-md font-bold text-white tracking-tight">Campus Compass</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              A comprehensive student-led compass and peer-to-peer survival protocol built for the incoming July 2026 Batch of Amrita Vishwa Vidyapeetham, Amaravati. We build. We survive. We lead.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">Campus Portals</h4>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="index.html" class="hover:text-white transition-colors">Home Base</a>
+              <a href="academics.html" class="hover:text-white transition-colors">Academic Life</a>
+              <a href="clubs.html" class="hover:text-white transition-colors">Clubs & Orgs</a>
+              <a href="hostel.html" class="hover:text-white transition-colors">Hostel Rules</a>
+              <a href="survival.html" class="hover:text-white transition-colors">survival Rules</a>
+              <a href="tools.html" class="hover:text-white transition-colors">Tech Portals</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Contact & Meta -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">University Metadata</h4>
+            <p class="text-xs leading-relaxed mb-3">
+              Amrita Vishwa Vidyapeetham, Kunchanapalli, Amaravati, Andhra Pradesh 522501.
+            </p>
+            <div class="flex space-x-3 text-sm">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://amrita.edu" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="Amrita Portal"><i class="fa-solid fa-globe"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono">
+          <p>© 2026 Campus Compass. Created by the Seniors Council.</p>
+          <p class="mt-2 sm:mt-0 text-center sm:text-right">
+            Handcrafted with ❤️ for <span class="text-amrita-gold">July 2026 Batch</span>. Shraddhavan Labhate Jnanam.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive script for Mobile Menu Toggle -->
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Gallery Filter & Lightbox Data
+      const galleryData = [
+        {
+          src: "/src/assets/images/club_spiritual_1780322330402.png",
+          title: "Sacred Altar and Puja Observances",
+          desc: "Beautifully decorated Shiva Lingam with floral garlands paired with the protective portrait of Chancellor Mother Amma in a wooden frame representing our values and traditions."
+        },
+        {
+          src: "/src/assets/images/club_hackathon_1780322358276.png",
+          title: "Hack X Amrita 2.0 – 30-Hour Innovation Sprints",
+          desc: "Grand physical cutout letters and branding setups configured by Prachurya Club members to welcome 300+ developers for continuous sprints."
+        },
+        {
+          src: "/src/assets/images/club_filmforge_1780322380332.png",
+          title: "Film Forge: 28-Day Filmmaking Challenge",
+          desc: "Official high-octane metallic poster for the intensive 28-day filming challenge designed by Drisya to mentor student screenwriters."
+        },
+        {
+          src: "/src/assets/images/club_sports_1780322404295.png",
+          title: "Inter Campus Football Tournament (Amaravati Campus)",
+          desc: "Flamboyant stadium matches backed by Saptaswara's live instrumental drum rolls and Nithyasparsh's halftime choreographies."
+        },
+        {
+          src: "/src/assets/images/club_casting_1780322430425.png",
+          title: "Drishya Creative Club — Auditions & Casting Calls",
+          desc: "The artistic multi-color casting call flyer designed by Drisya Club members to scout fine screen actors, camera crew, and directors."
+        },
+        {
+          src: "/src/assets/images/campus_bg_1780303973818.png",
+          title: "Tricolor Flag Hoisting Against the Main Block Skyline",
+          desc: "The proud tricolor Indian National Flag waving on campus grounds during glorious standard assembly hours, embodying national pride."
+        }
+      ];
+
+      let currentLightboxIndex = 0;
+
+      function filterGallery(category, btn) {
+        // Reset all buttons
+        document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+          b.classList.remove('bg-amrita-maroon', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700', 'border-gray-200', 'dark:bg-slate-800', 'dark:text-slate-300', 'dark:border-slate-700');
+        });
+        
+        // Active button styles
+        btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200', 'dark:bg-slate-800', 'dark:text-slate-300', 'dark:border-slate-700');
+        btn.classList.add('bg-amrita-maroon', 'text-white');
+        
+        // Show/Hide cards
+        document.querySelectorAll('.gallery-card').forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      function openLightbox(index) {
+        currentLightboxIndex = index;
+        updateLightboxContent();
+        const lightbox = document.getElementById('gallery-lightbox');
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Stop page scroll
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById('gallery-lightbox');
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Enable scroll
+      }
+
+      function changeLightboxImage(direction) {
+        currentLightboxIndex += direction;
+        if (currentLightboxIndex < 0) {
+          currentLightboxIndex = galleryData.length - 1;
+        } else if (currentLightboxIndex >= galleryData.length) {
+          currentLightboxIndex = 0;
+        }
+        updateLightboxContent();
+      }
+
+      function updateLightboxContent() {
+        const item = galleryData[currentLightboxIndex];
+        const img = document.getElementById('lightbox-img');
+        const counter = document.getElementById('lightbox-counter');
+        const caption = document.getElementById('lightbox-caption');
+        const desc = document.getElementById('lightbox-desc');
+        
+        img.src = item.src;
+        img.alt = item.title;
+        counter.innerText = (currentLightboxIndex + 1) + " of " + galleryData.length;
+        caption.innerText = item.title;
+        desc.innerText = item.desc;
+      }
+
+      // Close on escape key or arrow key keys
+      document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('gallery-lightbox');
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+          if (e.key === 'ArrowRight') changeLightboxImage(1);
+        }
+      });
+    </script>
+
+    <!-- Floating Theme Switcher Widget -->
+    <div id="theme-switcher-widget" class="fixed bottom-6 right-6 z-50">
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-full shadow-lg p-1.5 flex items-center space-x-1.5 transition-all">
+        <button id="theme-btn-light" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Light Mode" aria-label="Light Mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button id="theme-btn-dark" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Dark Mode" aria-label="Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="theme-btn-system" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="System Settings" aria-label="System Settings">
+          <i class="fa-solid fa-desktop"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Control Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightBtn = document.getElementById('theme-btn-light');
+        const darkBtn = document.getElementById('theme-btn-dark');
+        const systemBtn = document.getElementById('theme-btn-system');
+
+        function updateThemeUI(theme) {
+          // Reset button styles
+          [lightBtn, darkBtn, systemBtn].forEach(btn => {
+            if (btn) {
+              btn.className = "w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]";
+            }
+          });
+
+          // Focus the currently active mode
+          let activeBtn;
+          if (theme === 'light') activeBtn = lightBtn;
+          else if (theme === 'dark') activeBtn = darkBtn;
+          else activeBtn = systemBtn;
+
+          if (activeBtn) {
+            if (document.documentElement.classList.contains('dark')) {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-gold text-slate-950 scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            } else {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-maroon text-white scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            }
+          }
+        }
+
+        function setTheme(theme) {
+          localStorage.setItem('theme', theme);
+          
+          if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+
+          updateThemeUI(theme);
+        }
+
+        // Add action handlers
+        if (lightBtn) lightBtn.addEventListener('click', () => setTheme('light'));
+        if (darkBtn) darkBtn.addEventListener('click', () => setTheme('dark'));
+        if (systemBtn) systemBtn.addEventListener('click', () => setTheme('system'));
+
+        // Initialize display state
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        updateThemeUI(currentTheme);
+
+        // Continuous system media listener
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') {
+            setTheme('system');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

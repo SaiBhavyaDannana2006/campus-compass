@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Tools | Campus Compass Amrita Amaravati</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Immediate Theme Initialization to Prevent Flash of Unstyled Content
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amrita: {
+                maroon: '#800020',
+                maroonHover: '#6a001a',
+                maroonLight: '#fcf2f4',
+                gold: '#D4AF37',
+                goldHover: '#bfa02c',
+                goldLight: '#fdf9eb',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .navigation-link-active {
+        color: #D4AF37;
+        border-bottom: 2px solid #D4AF37;
+      }
+
+      /* Premium Dark Mode Global Overrides */
+      .dark {
+        color-scheme: dark;
+      }
+      .dark body {
+        background-color: #0b0f19 !important;
+        color: #f1f5f9 !important;
+      }
+      .dark header {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu a {
+        color: #e2e8f0 !important;
+      }
+      .dark #mobile-menu a:hover {
+        background-color: #1e293b !important;
+        color: #fff !important;
+      }
+      .dark .bg-white {
+        background-color: #0f172a !important;
+      }
+      .dark .border-gray-100, 
+      .dark .border-gray-200, 
+      .dark .border-gray-200\/80 {
+        border-color: #1e293b !important;
+      }
+      .dark .text-gray-900 {
+        color: #f8fafc !important;
+      }
+      .dark .text-gray-800 {
+        color: #f1f5f9 !important;
+      }
+      .dark .text-gray-750 {
+        color: #cbd5e1 !important;
+      }
+      .dark .text-gray-700 {
+        color: #e2e8f0 !important;
+      }
+      .dark .text-gray-600 {
+        color: #94a3b8 !important;
+      }
+      .dark .text-gray-500 {
+        color: #64748b !important;
+      }
+      .dark .bg-\[\#F9FAFB\] {
+        background-color: #0b0f19 !important;
+      }
+      .dark .border-t {
+        border-color: #1e293b !important;
+      }
+      /* Welcome block and dashboard cards */
+      .dark .bg-\[\#FDFBF7\] {
+        background-color: #111827 !important;
+        border-color: rgba(212, 175, 55, 0.2) !important;
+      }
+      .dark .bg-gray-50 {
+        background-color: #161e2e !important;
+      }
+      .dark .bg-gray-100 {
+        background-color: #1e293b !important;
+      }
+      .dark .bg-orange-50 {
+        background-color: rgba(234, 88, 12, 0.1) !important;
+        color: #ffedd5 !important;
+      }
+      .dark .bg-emerald-50 {
+        background-color: rgba(16, 185, 129, 0.1) !important;
+        color: #d1fae5 !important;
+      }
+      .dark .bg-blue-50 {
+        background-color: rgba(59, 130, 246, 0.1) !important;
+        color: #dbeafe !important;
+      }
+      .dark .bg-purple-50 {
+        background-color: rgba(139, 92, 246, 0.1) !important;
+        color: #f3e8ff !important;
+      }
+      .dark .bg-indigo-50 {
+        background-color: rgba(99, 102, 241, 0.1) !important;
+        color: #e0e7ff !important;
+      }
+      .dark .navigation-link-active {
+        color: #D4AF37 !important;
+        border-bottom-color: #D4AF37 !important;
+      }
+      .dark nav a:not(.navigation-link-active) {
+        color: #cbd5e1 !important;
+      }
+      .dark nav a:not(.navigation-link-active):hover {
+        color: #D4AF37 !important;
+      }
+      .dark .text-gray-950 {
+        color: #f8fafc !important;
+      }
+      /* Hover states for cards */
+      .dark .hover\:shadow-md:hover {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+      }
+      .dark .hover\:-translate-y-1:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      /* High-Accessibility Dark Mode Overrides for University & State Badges */
+      .dark .text-amrita-maroon,
+      .dark .text-\[\#800020\] {
+        color: #ff9fb1 !important; /* Premium WCAG-compliant light rose/maroon */
+      }
+      .dark .bg-amrita-maroonLight {
+        background-color: rgba(128, 0, 32, 0.15) !important;
+        color: #ff9fb1 !important;
+        border-color: rgba(255, 159, 177, 0.2) !important;
+      }
+      .dark .text-amrita-gold {
+        color: #f6d258 !important; /* Saturated gold for high readability */
+      }
+      .dark .bg-amrita-goldLight {
+        background-color: rgba(212, 175, 55, 0.12) !important;
+        color: #f6d258 !important;
+        border-color: rgba(212, 175, 55, 0.25) !important;
+      }
+
+      /* Alert, Stats, Card Background and Text Color Theme Merging adjustments */
+      .dark .text-red-955,
+      .dark .text-red-950,
+      .dark .text-red-900,
+      .dark .text-red-800,
+      .dark .text-red-700 {
+        color: #fca5a5 !important; /* red-300 */
+      }
+      .dark .bg-red-50,
+      .dark .bg-red-50\/70,
+      .dark .bg-red-50\/50,
+      .dark .bg-red-50\/30,
+      .dark .bg-red-100 {
+        background-color: rgba(239, 68, 68, 0.12) !important;
+        border-color: rgba(239, 68, 68, 0.25) !important;
+      }
+
+      .dark .text-emerald-955,
+      .dark .text-emerald-950,
+      .dark .text-emerald-900,
+      .dark .text-emerald-800,
+      .dark .text-emerald-700 {
+        color: #6ee7b7 !important; /* emerald-300 */
+      }
+      .dark .bg-emerald-55,
+      .dark .bg-emerald-50\/70,
+      .dark .bg-emerald-50\/50,
+      .dark .bg-emerald-50\/30,
+      .dark .bg-emerald-100 {
+        background-color: rgba(16, 185, 129, 0.12) !important;
+        border-color: rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .dark .text-blue-955,
+      .dark .text-blue-950,
+      .dark .text-blue-900,
+      .dark .text-blue-800,
+      .dark .text-blue-700 {
+        color: #93c5fd !important; /* blue-300 */
+      }
+      .dark .bg-blue-50\/70,
+      .dark .bg-blue-50\/50,
+      .dark .bg-blue-50\/30,
+      .dark .bg-blue-100 {
+        background-color: rgba(59, 130, 246, 0.12) !important;
+        border-color: rgba(59, 130, 246, 0.25) !important;
+      }
+
+      .dark .text-purple-955,
+      .dark .text-purple-950,
+      .dark .text-purple-900,
+      .dark .text-purple-800,
+      .dark .text-purple-700 {
+        color: #c084fc !important; /* purple-300 */
+      }
+      .dark .bg-purple-50\/70,
+      .dark .bg-purple-50\/50,
+      .dark .bg-purple-50\/30,
+      .dark .bg-purple-100 {
+        background-color: rgba(139, 92, 246, 0.12) !important;
+        border-color: rgba(139, 92, 246, 0.25) !important;
+      }
+
+      .dark .text-indigo-955,
+      .dark .text-indigo-950,
+      .dark .text-indigo-900,
+      .dark .text-indigo-800,
+      .dark .text-indigo-700 {
+        color: #a5b4fc !important; /* indigo-300 */
+      }
+      .dark .bg-indigo-50\/70,
+      .dark .bg-indigo-50\/50,
+      .dark .bg-indigo-50\/30,
+      .dark .bg-indigo-100 {
+        background-color: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+      }
+
+      .dark .text-orange-955,
+      .dark .text-orange-950,
+      .dark .text-orange-900,
+      .dark .text-orange-850,
+      .dark .text-orange-800,
+      .dark .text-orange-700 {
+        color: #fdba74 !important; /* orange-300 */
+      }
+
+      /* Hover States and Interactive Card Backgrounds in Dark Mode */
+      .dark .hover\:bg-white:hover {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      .dark .hover\:bg-gray-50:hover {
+        background-color: #161e2e !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F9FAFB] dark:bg-slate-950 font-sans text-gray-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-350">
+
+    <!-- Global Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo Section -->
+          <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="bg-amrita-maroon w-12 h-12 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-105 shadow-md">
+              <i class="fa-solid fa-compass text-2xl text-amrita-gold"></i>
+            </div>
+            <div>
+              <span class="block font-display text-xl font-bold text-amrita-maroon tracking-tight">Campus Compass</span>
+              <span class="block font-mono text-[10px] text-gray-500 tracking-wider uppercase">Amrita Amaravati • July 2026</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-1">
+            <a href="index.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Home</a>
+            <a href="academics.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Academic Life</a>
+            <a href="clubs.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Clubs & Cultural</a>
+            <a href="hostel.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Campus & Hostel</a>
+            <a href="survival.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Survival Kit</a>
+            <a href="tools.html" class="px-3 py-2 text-sm font-medium navigation-link-active transition-colors hover:text-amrita-gold">Tech Tools</a>
+          </nav>
+
+          <!-- Right Action Hand -->
+          <div class="hidden lg:flex items-center">
+            <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+              <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+              Freshers Batch July 2026
+            </span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-btn" type="button" class="text-gray-500 hover:text-amrita-maroon focus:outline-none p-2" aria-label="Toggle Navigation">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+        <a href="index.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Home</a>
+        <a href="academics.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Academic Life</a>
+        <a href="clubs.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Clubs & Cultural</a>
+        <a href="hostel.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Campus & Hostel</a>
+        <a href="survival.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Survival Kit</a>
+        <a href="tools.html" class="block px-4 py-2.5 rounded-md text-sm font-semibold bg-amrita-maroon text-white animate-fade-in font-display">Tech Tools</a>
+        <div class="pt-4 border-t border-gray-100 flex items-center justify-center">
+          <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+            <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+            Freshers Batch July 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      
+      <!-- Page Title -->
+      <section class="bg-amrita-maroon text-white py-12 border-b border-amrita-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <nav class="flex space-x-2 font-mono text-xs text-amrita-gold mb-3 uppercase">
+                <a href="index.html" class="hover:underline">Home</a>
+                <span>/</span>
+                <span class="text-white">Tech Tools Checklist</span>
+              </nav>
+              <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">The developer Pack & Tech Resources</h1>
+              <p class="text-sm sm:text-md text-gray-200 mt-2 max-w-2xl">
+                Amrita utilizes custom digital portals for attendance and assignment submissions. Secure your credentials, claim developer packs, and start your algorithmic training.
+              </p>
+            </div>
+            <div class="bg-white/10 px-6 py-4 rounded-xl border border-white/10 flex items-center space-x-4">
+              <div class="text-indigo-400 text-3xl"><i class="fa-brands fa-git-alt text-amrita-gold"></i></div>
+              <div>
+                <span class="block text-xs font-mono uppercase text-gray-300">GitHub Benefits</span>
+                <span class="block text-sm font-semibold text-white">Free $200k SaaS Pack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stream-Specific Must-Have Toolkits -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="font-mono text-xs text-amrita-maroon font-extrabold uppercase tracking-widest">Syllabus Toolkit</span>
+            <h2 class="font-display text-3xl font-extrabold text-[#111827] tracking-tight mt-1">Stream-Specific Must-Have Toolkits</h2>
+            <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              Tailored specifically to what freshers encounter in the Amrita syllabus across different streams. The earlier you learn these, the less you'll suffer later.
+            </p>
+          </div>
+
+          <!-- Filter & Search Controls Container -->
+          <div class="max-w-5xl mx-auto mb-12 space-y-4">
+            <!-- Search Input with Modern Icon -->
+            <div class="relative rounded-2xl shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                <i class="fa-solid fa-magnifying-glass text-sm"></i>
+              </div>
+              <input type="text" id="tool-search-input" 
+                class="block w-full pl-11 pr-10 py-3 sm:py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-gray-950 placeholder-gray-450 focus:outline-none focus:ring-2 focus:ring-amrita-maroon/20 focus:border-amrita-maroon text-sm transition-all shadow-inner" 
+                placeholder="Search tools, platforms or concepts (e.g., WSL, Kaggle, LTspice, Arduino)..." />
+              <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 hidden" aria-label="Clear Search">
+                <i class="fa-solid fa-circle-xmark text-sm"></i>
+              </button>
+            </div>
+
+            <!-- Stream Filter Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-1">
+              <button data-filter="all" class="stream-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shadow-sm bg-amrita-maroon border-amrita-maroon text-white">
+                All Streams
+              </button>
+              <button data-filter="cse" class="stream-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shadow-sm bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-[#800020] hover:border-amrita-maroon/40">
+                CSE (Developer)
+              </button>
+              <button data-filter="ai" class="stream-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shadow-sm bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-purple-700 hover:border-purple-200">
+                AI (Machine Learning)
+              </button>
+              <button data-filter="ds" class="stream-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shadow-sm bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-blue-700 hover:border-blue-200">
+                Data Science (Analytics)
+              </button>
+              <button data-filter="cce" class="stream-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shadow-sm bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-teal-700 hover:border-teal-200">
+                CCE (Hardware/IoT)
+              </button>
+            </div>
+            
+            <!-- Dynamic Count / Status badge -->
+            <div id="search-status-text" class="text-center text-xs font-mono text-gray-500 min-h-[1.25rem]"></div>
+          </div>
+
+          <!-- 4-Column Grid -->
+          <div id="toolkit-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Column 1: CSE Developer DevKit -->
+            <div class="toolkit-column bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all" data-stream="cse">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-red-50 text-amrita-maroon flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="font-display font-bold text-gray-900 text-base">CSE Fresher Toolkit</h3>
+                <span class="block font-mono text-[10px] text-amrita-maroon font-bold uppercase tracking-wider mb-4">The Developer DevKit</span>
+                
+                <p class="text-xs text-gray-500 mb-5 leading-normal">
+                  Foundational tools for computer science labs and Unix terminal proficiency.
+                </p>
+
+                <!-- Tools List -->
+                <div class="space-y-4 pt-4 border-t border-gray-100">
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amrita-maroon"></span>
+                      WSL 2 (Linux Subsystem)
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Run a native Linux terminal inside Windows. Essential for operating system labs and scripting.
+                    </p>
+                  </div>
+                  
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amrita-maroon"></span>
+                      Docker Desktop
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Containerize apps and run local database instances cleanly without cluttering your operating system.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amrita-maroon"></span>
+                      Neovim / Vim
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Terminal-based text editing that builds fast navigation muscle memory during lab practical exams.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amrita-maroon"></span>
+                      Exercism.org
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Free interactive platform with mentors to master C and Python before starting DSA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-[10px] font-mono text-amrita-maroon font-semibold">
+                <span>Domain: Software Engineering</span>
+                <i class="fa-solid fa-code text-[#800020]"></i>
+              </div>
+            </div>
+
+            <!-- Column 2: AI Intelligent Edge -->
+            <div class="toolkit-column bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all" data-stream="ai">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3 class="font-display font-bold text-gray-900 text-base">AI Fresher Toolkit</h3>
+                <span class="block font-mono text-[10px] text-purple-600 font-bold uppercase tracking-wider mb-4">The Intelligent Edge</span>
+                
+                <p class="text-xs text-gray-500 mb-5 leading-normal">
+                  Accelerate and monitor machine learning and deep learning pipelines.
+                </p>
+
+                <!-- Tools List -->
+                <div class="space-y-4 pt-4 border-t border-gray-100">
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                      Kaggle Kernels
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Utilize free cloud environments to study community notebooks and feature engineering techniques.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                      Weights & Biases (W&B)
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Free MLOps platform to visualize metrics, track loss curves, and organize experiment logs.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                      Streamlit
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Quickly turn python AI scripts into interactive web dashboards for hackathons.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                      Fast.ai
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Top-down, hands-on deep learning library to train models before exploring underlying calculus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-[10px] font-mono text-purple-600 font-semibold">
+                <span>Domain: Artificial Intelligence</span>
+                <i class="fa-solid fa-robot text-purple-500"></i>
+              </div>
+            </div>
+
+            <!-- Column 3: Data Science Analytics Stack -->
+            <div class="toolkit-column bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all" data-stream="ds">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+                <h3 class="font-display font-bold text-gray-900 text-base">Data Science Toolkit</h3>
+                <span class="block font-mono text-[10px] text-blue-600 font-bold uppercase tracking-wider mb-4">The Analytics Stack</span>
+                
+                <p class="text-xs text-gray-500 mb-5 leading-normal">
+                  Master big data management and structured array processing cleanly.
+                </p>
+
+                <!-- Tools List -->
+                <div class="space-y-4 pt-4 border-t border-gray-100">
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      DBeaver
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Universal database GUI to easily visualize local SQL schemas, tables, and relationships.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      Google Dataset Search
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Google's specialized search engine to locate raw dataset tables for data science coursework.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      Pandas Profiling
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      One-line Python utility that generates complete exploratory data analysis reports.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      DataCamp (Free Tracks)
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Interactive browser sandbox for practicing statistics and data cleaning loops.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-[10px] font-mono text-blue-600 font-semibold">
+                <span>Domain: Data Analytics</span>
+                <i class="fa-solid fa-chart-pie text-blue-500"></i>
+              </div>
+            </div>
+
+            <!-- Column 4: CCE Hardware-Software Bridge -->
+            <div class="toolkit-column bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all" data-stream="cce">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <h3 class="font-display font-bold text-gray-900 text-base">CCE Fresher Toolkit</h3>
+                <span class="block font-mono text-[10px] text-teal-600 font-bold uppercase tracking-wider mb-4">The Hardware-Software Bridge</span>
+                
+                <p class="text-xs text-gray-500 mb-5 leading-normal">
+                  Deconstruct circuits, PCB schematics, and simulate microcontrollers.
+                </p>
+
+                <!-- Tools List -->
+                <div class="space-y-4 pt-4 border-t border-gray-100">
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                      Tinkercad Circuits
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Simulate complete Arduino and sensor wiring designs before wiring actual microcontrollers.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                      LTspice
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Industry-standard utility to simulate analog circuits. Essential for electronic devices and networks.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                      KiCad EDA
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Open-source schematic editor and PCB layout suite to design your own circuit boards.
+                    </p>
+                  </div>
+
+                  <div class="tool-item-block transition-all duration-200">
+                    <h4 class="text-xs font-bold text-gray-900 flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                      Logic 2 (Saleae)
+                    </h4>
+                    <p class="text-[11px] text-gray-600 leading-normal mt-1">
+                      Analyze digital signals and debug serial communication protocols like I2C, SPI, and UART.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-[10px] font-mono text-teal-600 font-semibold">
+                <span>Domain: Hardware & IoT</span>
+                <i class="fa-solid fa-microchip text-teal-500"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section: Bookmarked Stuff -->
+      <section class="py-16 bg-gradient-to-b from-[#F9FAFB] to-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="font-mono text-xs text-amrita-maroon font-extrabold uppercase tracking-widest">Seniors' Vault</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight mt-1">Stuff You Actually Need Bookmarked</h2>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 font-medium">
+              Mostly free. All useful. The earlier you learn these, the less you'll suffer later.
+            </p>
+          </div>
+
+          <!-- Resources Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Bookmark 1: NeetCode -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-code-branch"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100/60 text-emerald-800">Placement Preparation</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">NeetCode.io</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"The ultimate algorithmic roadmap."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Structured coding question trees and direct video explanations for learning DSA patterns in C++, Python, or Java.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://neetcode.io" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center">
+                  <span>Visit neetcode.io</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">Bookmark-worthy</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 2: Roadmap.sh -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-100/60 text-blue-800">Career Guidelines</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">Roadmap.sh</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"Learn what to learn next."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Community-driven learning paths for Frontend, Backend, Machine Learning, Cybersecurity, or DevOps.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://roadmap.sh" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors flex items-center">
+                  <span>Visit roadmap.sh</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">100% Free Info</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 3: Overleaf LaTeX -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-file-invoice"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-100/60 text-indigo-800">Seminar / Thesis Reports</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">Overleaf LaTeX Editor</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"Academic reports, styled beautifully."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Collaborative online LaTeX editor for formatting academic reports, research papers, and university thesis templates.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://www.overleaf.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors flex items-center">
+                  <span>Visit overleaf.com</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">Highly Critical</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 4: DevDocs.io -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal-100/60 text-teal-800">Quick Reference</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">DevDocs.io</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"All API docs, in one single clean page."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Combines official documentation archives for basic and advanced systems (Python, C, C++, Java, Git, SQL, Bash) into a lightweight, fast, offline-capable search panel. Speeds up laboratory coding sprints.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://devdocs.io" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors flex items-center">
+                  <span>Visit devdocs.io</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">Offline-Capable</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 5: CS50 -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-100/60 text-red-800">Core Foundations</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">Harvard CS50</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"Demystify pointers and memory hierarchies."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Struggling with pointers, buffer overflows, or data structures during standard classroom sessions? David J. Malan's CS50 is the globally recognized gold-standard course to ground your structural logical thinking.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-red-600 hover:text-red-700 transition-colors flex items-center">
+                  <span>Visit cs50.harvard.edu</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">Excellent Pedagogy</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 6: Zotero -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-quote-left"></i>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100/60 text-amber-800">Research Workspace</span>
+                </div>
+                <h3 class="font-display font-bold text-gray-950 text-base mb-1">Zotero Reference Manager</h3>
+                <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-3">"Automate your citation cataloging."</p>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Do not compile bibliography listings manually. Zotero detects online resource references from Google Scholar or IEEE Xplore, creating beautiful, properly structured citation databases automatically for academic papers.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://www.zotero.org" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors flex items-center">
+                  <span>Visit zotero.org</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+                <span class="text-[10px] font-mono text-gray-400">Free Open-Source</span>
+              </div>
+            </div>
+
+            <!-- Bookmark 7: RegExr / JSON Formatter -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-amrita-gold/35 transition-all md:col-span-2 lg:col-span-3">
+              <div class="lg:flex lg:items-center lg:gap-8">
+                <div class="lg:w-2/3">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg">
+                      <i class="fa-solid fa-code"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-100/60 text-purple-800">Utility Sandboxes</span>
+                  </div>
+                  <h3 class="font-display font-bold text-gray-950 text-base mb-1">RegExr & JSON Web Parsers</h3>
+                  <p class="text-[11px] font-mono italic text-amrita-maroon font-semibold mb-2">"Developer core debugging tools."</p>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Bookmarks you will launch dozens of times daily. Use **RegExr.com** to visually experiment, learn, and test custom string matching expressions. Pair it with **jsonformatter.org** to validate, prettify, and navigate complex REST API payload structures during web development labs.
+                  </p>
+                </div>
+                <div class="mt-6 lg:mt-0 lg:w-1/3 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+                  <a href="https://regexr.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-purple-50 hover:border-purple-200 transition-all text-xs font-semibold text-gray-800 text-left">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-code text-purple-500"></i> Tech Sandbox: RegExr</span>
+                    <i class="fa-solid fa-angle-right text-purple-400"></i>
+                  </a>
+                  <a href="https://jsonformatter.org" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-purple-50 hover:border-purple-200 transition-all text-xs font-semibold text-gray-800 text-left">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-brackets-curly text-purple-500"></i> JSON Formatter & Parser</span>
+                    <i class="fa-solid fa-angle-right text-purple-400"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 italic">Always keep these folders open during server operations.</span>
+                <span class="text-[10px] font-mono text-gray-400">Lab Power Tools</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed setup guidelines & senior advice callout -->
+      <section class="py-12 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8">
+            <h3 class="font-display font-extrabold text-gray-900 text-lg mb-4 flex items-center">
+              <i class="fa-solid fa-circle-info text-amrita-maroon mr-2 text-xl"></i>
+              Hostel Wi-Fi Configuration Guideline for Linux/Windows Users
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">
+              Getting your laptop online in the hostel requires specific parameter adjustments during authentication. Standard "plug-and-play" settings won't establish connection. Follow these properties:
+            </p>
+            <div class="bg-gray-900 text-gray-200 p-4 rounded-xl font-mono text-xs overflow-x-auto space-y-1 my-4 border border-gray-800">
+              <div class="flex justify-between"><span class="text-gray-400">SSID:</span> <span class="text-amrita-gold">Amrita-WiFi</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Security Type:</span> <span class="text-white">WPA2-Enterprise (EAP)</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">EAP Authentication Method:</span> <span class="text-white">PEAP</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Phase-2 Authentication:</span> <span class="text-white">MSCHAPv2</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">CA Certificate:</span> <span class="text-red-400">Do Not Validate / No Cert</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Identity:</span> <span class="text-emerald-400">Your Student Roll Number (e.g. AM.EN.U4CSE26001)</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Password:</span> <span class="text-gray-500">[Default pin distributed in onboarding files]</span></div>
+            </div>
+            <p class="text-xs text-gray-500 italic mt-2">
+              Note: If connection errors persist on your specific laptop models, do not panic. Carry your system to the Ground Floor IT Support desk located in academic Block-1. The system administrators will register your MAC addresses manually and authorize access.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-[#111827] text-gray-400 py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800">
+          
+          <!-- Column 1: Info -->
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="bg-amrita-maroon w-8 h-8 rounded flex items-center justify-center text-white">
+                <i class="fa-solid fa-compass text-sm text-amrita-gold"></i>
+              </div>
+              <span class="font-display text-md font-bold text-white tracking-tight">Campus Compass</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              A comprehensive student-led compass and peer-to-peer survival protocol built for the incoming July 2026 Batch of Amrita Vishwa Vidyapeetham, Amaravati. We build. We survive. We lead.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">Campus Portals</h4>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="index.html" class="hover:text-white transition-colors">Home Base</a>
+              <a href="academics.html" class="hover:text-white transition-colors">Academic Life</a>
+              <a href="clubs.html" class="hover:text-white transition-colors">Clubs & Orgs</a>
+              <a href="hostel.html" class="hover:text-white transition-colors">Hostel Rules</a>
+              <a href="survival.html" class="hover:text-white transition-colors">survival Rules</a>
+              <a href="tools.html" class="hover:text-white transition-colors">Tech Portals</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Contact & Meta -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">University Metadata</h4>
+            <p class="text-xs leading-relaxed mb-3">
+              Amrita Vishwa Vidyapeetham, Kunchanapalli, Amaravati, Andhra Pradesh 522501.
+            </p>
+            <div class="flex space-x-3 text-sm">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://amrita.edu" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="Amrita Portal"><i class="fa-solid fa-globe"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono">
+          <p>© 2026 Campus Compass. Created by the Seniors Council.</p>
+          <p class="mt-2 sm:mt-0 text-center sm:text-right">
+            Handcrafted with ❤️ for <span class="text-amrita-gold">July 2026 Batch</span>. Shraddhavan Labhate Jnanam.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu & Search/Filter Interactive Handlers -->
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Stream Toolkits Live Search and Filter Engine
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('tool-search-input');
+        const clearBtn = document.getElementById('clear-search-btn');
+        const filterBtns = document.querySelectorAll('.stream-filter-btn');
+        const statusText = document.getElementById('search-status-text');
+        
+        const columns = document.querySelectorAll('.toolkit-column');
+        const toolBlocks = document.querySelectorAll('.tool-item-block');
+
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function runFilter() {
+          searchQuery = searchInput.value.toLowerCase().trim();
+          
+          // Clear button visibility
+          if (searchQuery.length > 0) {
+            clearBtn.classList.remove('hidden');
+          } else {
+            clearBtn.classList.add('hidden');
+          }
+
+          let matchedToolsCount = 0;
+          let activeColumnsCount = 0;
+
+          // 1. Filter tools inside cards
+          toolBlocks.forEach(block => {
+            const heading = block.querySelector('h4').textContent.toLowerCase();
+            const desc = block.querySelector('p').textContent.toLowerCase();
+            const matchesQuery = heading.includes(searchQuery) || desc.includes(searchQuery);
+
+            if (matchesQuery) {
+              block.classList.remove('hidden');
+              // Highlight matched elements when query is typed
+              if (searchQuery.length > 1) {
+                block.classList.add('border-l-2', 'border-amrita-maroon', 'pl-2', 'bg-red-50/20');
+              } else {
+                block.classList.remove('border-l-2', 'border-amrita-maroon', 'pl-2', 'bg-red-50/20');
+              }
+              matchedToolsCount++;
+            } else {
+              block.classList.add('hidden');
+              block.classList.remove('border-l-2', 'border-amrita-maroon', 'pl-2', 'bg-red-50/20');
+            }
+          });
+
+          // 2. Filter whole stream columns based on active category Filter AND visible matching tools
+          columns.forEach(col => {
+            const streamValue = col.getAttribute('data-stream');
+            const matchesStreamFilter = (activeFilter === 'all' || streamValue === activeFilter);
+            
+            // How many matching tools are currently visible inside this column?
+            const visibleToolsInColCount = col.querySelectorAll('.tool-item-block:not(.hidden)').length;
+
+            if (matchesStreamFilter && (searchQuery === '' || visibleToolsInColCount > 0)) {
+              col.classList.remove('hidden');
+              activeColumnsCount++;
+            } else {
+              col.classList.add('hidden');
+            }
+          });
+
+          // 3. Update Status Badge with helpful stats
+          if (searchQuery.length > 0 || activeFilter !== 'all') {
+            const filterName = activeFilter === 'all' 
+              ? 'All Streams' 
+              : activeFilter.toUpperCase();
+            
+            if (matchedToolsCount > 0) {
+              statusText.innerHTML = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-100">
+                <i class="fa-solid fa-circle-check text-emerald-500"></i> Found <strong>${matchedToolsCount}</strong> matching tool${matchedToolsCount > 1 ? 's' : ''} in <strong>${filterName}</strong>
+              </span>`;
+            } else {
+              statusText.innerHTML = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-50 text-red-800 border border-red-100">
+                <i class="fa-solid fa-circle-xmark text-red-500"></i> No tools match "${searchInput.value}" in <strong>${filterName}</strong>
+              </span>`;
+            }
+          } else {
+            statusText.innerHTML = '';
+          }
+        }
+
+        // Search Input listener
+        searchInput.addEventListener('input', runFilter);
+
+        // Clear Search listener
+        clearBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          runFilter();
+          searchInput.focus();
+        });
+
+        // Filter button listeners
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetFilter = btn.getAttribute('data-filter');
+            
+            // Toggle active classes on filter buttons
+            filterBtns.forEach(b => {
+              b.classList.remove('bg-amrita-maroon', 'border-amrita-maroon', 'text-white');
+              b.classList.add('bg-white', 'border-gray-200', 'text-gray-700', 'hover:bg-gray-50');
+            });
+
+            btn.classList.add('bg-amrita-maroon', 'border-amrita-maroon', 'text-white');
+            btn.classList.remove('bg-white', 'border-gray-200', 'text-gray-700', 'hover:bg-gray-50');
+
+            activeFilter = targetFilter;
+            runFilter();
+          });
+        });
+      });
+    </script>
+
+    <!-- Floating Theme Switcher Widget -->
+    <div id="theme-switcher-widget" class="fixed bottom-6 right-6 z-50">
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-full shadow-lg p-1.5 flex items-center space-x-1.5 transition-all">
+        <button id="theme-btn-light" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Light Mode" aria-label="Light Mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button id="theme-btn-dark" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Dark Mode" aria-label="Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="theme-btn-system" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="System Settings" aria-label="System Settings">
+          <i class="fa-solid fa-desktop"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Control Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightBtn = document.getElementById('theme-btn-light');
+        const darkBtn = document.getElementById('theme-btn-dark');
+        const systemBtn = document.getElementById('theme-btn-system');
+
+        function updateThemeUI(theme) {
+          // Reset button styles
+          [lightBtn, darkBtn, systemBtn].forEach(btn => {
+            if (btn) {
+              btn.className = "w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]";
+            }
+          });
+
+          // Focus the currently active mode
+          let activeBtn;
+          if (theme === 'light') activeBtn = lightBtn;
+          else if (theme === 'dark') activeBtn = darkBtn;
+          else activeBtn = systemBtn;
+
+          if (activeBtn) {
+            if (document.documentElement.classList.contains('dark')) {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-gold text-slate-950 scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            } else {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-maroon text-white scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            }
+          }
+        }
+
+        function setTheme(theme) {
+          localStorage.setItem('theme', theme);
+          
+          if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+
+          updateThemeUI(theme);
+        }
+
+        // Add action handlers
+        if (lightBtn) lightBtn.addEventListener('click', () => setTheme('light'));
+        if (darkBtn) darkBtn.addEventListener('click', () => setTheme('dark'));
+        if (systemBtn) systemBtn.addEventListener('click', () => setTheme('system'));
+
+        // Initialize display state
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        updateThemeUI(currentTheme);
+
+        // Continuous system media listener
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') {
+            setTheme('system');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

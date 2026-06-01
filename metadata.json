@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Campus Compass",
+  "description": "A multi-page digital handbook for Amrita Amaravati freshers covering academics, campus life, clubs, and essential survival tools for 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

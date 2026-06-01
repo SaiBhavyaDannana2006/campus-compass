@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Life | Campus Compass Amrita Amaravati</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Immediate Theme Initialization to Prevent Flash of Unstyled Content
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amrita: {
+                maroon: '#800020',
+                maroonHover: '#6a001a',
+                maroonLight: '#fcf2f4',
+                gold: '#D4AF37',
+                goldHover: '#bfa02c',
+                goldLight: '#fdf9eb',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .navigation-link-active {
+        color: #D4AF37;
+        border-bottom: 2px solid #D4AF37;
+      }
+
+      /* Premium Dark Mode Global Overrides */
+      .dark {
+        color-scheme: dark;
+      }
+      .dark body {
+        background-color: #0b0f19 !important;
+        color: #f1f5f9 !important;
+      }
+      .dark header {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu a {
+        color: #e2e8f0 !important;
+      }
+      .dark #mobile-menu a:hover {
+        background-color: #1e293b !important;
+        color: #fff !important;
+      }
+      .dark .bg-white {
+        background-color: #0f172a !important;
+      }
+      .dark .border-gray-100, 
+      .dark .border-gray-200, 
+      .dark .border-gray-200\/80 {
+        border-color: #1e293b !important;
+      }
+      .dark .text-gray-900 {
+        color: #f8fafc !important;
+      }
+      .dark .text-gray-800 {
+        color: #f1f5f9 !important;
+      }
+      .dark .text-gray-750 {
+        color: #cbd5e1 !important;
+      }
+      .dark .text-gray-700 {
+        color: #e2e8f0 !important;
+      }
+      .dark .text-gray-600 {
+        color: #94a3b8 !important;
+      }
+      .dark .text-gray-500 {
+        color: #64748b !important;
+      }
+      .dark .bg-\[\#F9FAFB\] {
+        background-color: #0b0f19 !important;
+      }
+      .dark .border-t {
+        border-color: #1e293b !important;
+      }
+      /* Welcome block and dashboard cards */
+      .dark .bg-\[\#FDFBF7\] {
+        background-color: #111827 !important;
+        border-color: rgba(212, 175, 55, 0.2) !important;
+      }
+      .dark .bg-gray-50 {
+        background-color: #161e2e !important;
+      }
+      .dark .bg-gray-100 {
+        background-color: #1e293b !important;
+      }
+      .dark .bg-orange-50 {
+        background-color: rgba(234, 88, 12, 0.1) !important;
+        color: #ffedd5 !important;
+      }
+      .dark .bg-emerald-50 {
+        background-color: rgba(16, 185, 129, 0.1) !important;
+        color: #d1fae5 !important;
+      }
+      .dark .bg-blue-50 {
+        background-color: rgba(59, 130, 246, 0.1) !important;
+        color: #dbeafe !important;
+      }
+      .dark .bg-purple-50 {
+        background-color: rgba(139, 92, 246, 0.1) !important;
+        color: #f3e8ff !important;
+      }
+      .dark .bg-indigo-50 {
+        background-color: rgba(99, 102, 241, 0.1) !important;
+        color: #e0e7ff !important;
+      }
+      .dark .navigation-link-active {
+        color: #D4AF37 !important;
+        border-bottom-color: #D4AF37 !important;
+      }
+      .dark nav a:not(.navigation-link-active) {
+        color: #cbd5e1 !important;
+      }
+      .dark nav a:not(.navigation-link-active):hover {
+        color: #D4AF37 !important;
+      }
+      .dark .text-gray-950 {
+        color: #f8fafc !important;
+      }
+      /* Hover states for cards */
+      .dark .hover\:shadow-md:hover {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+      }
+      .dark .hover\:-translate-y-1:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      /* High-Accessibility Dark Mode Overrides for University & State Badges */
+      .dark .text-amrita-maroon,
+      .dark .text-\[\#800020\] {
+        color: #ff9fb1 !important; /* Premium WCAG-compliant light rose/maroon */
+      }
+      .dark .bg-amrita-maroonLight {
+        background-color: rgba(128, 0, 32, 0.15) !important;
+        color: #ff9fb1 !important;
+        border-color: rgba(255, 159, 177, 0.2) !important;
+      }
+      .dark .text-amrita-gold {
+        color: #f6d258 !important; /* Saturated gold for high readability */
+      }
+      .dark .bg-amrita-goldLight {
+        background-color: rgba(212, 175, 55, 0.12) !important;
+        color: #f6d258 !important;
+        border-color: rgba(212, 175, 55, 0.25) !important;
+      }
+
+      /* Alert, Stats, Card Background and Text Color Theme Merging adjustments */
+      .dark .text-red-955,
+      .dark .text-red-950,
+      .dark .text-red-900,
+      .dark .text-red-800,
+      .dark .text-red-700 {
+        color: #fca5a5 !important; /* red-300 */
+      }
+      .dark .bg-red-50,
+      .dark .bg-red-50\/70,
+      .dark .bg-red-50\/50,
+      .dark .bg-red-50\/30,
+      .dark .bg-red-100 {
+        background-color: rgba(239, 68, 68, 0.12) !important;
+        border-color: rgba(239, 68, 68, 0.25) !important;
+      }
+
+      .dark .text-emerald-955,
+      .dark .text-emerald-950,
+      .dark .text-emerald-900,
+      .dark .text-emerald-800,
+      .dark .text-emerald-700 {
+        color: #6ee7b7 !important; /* emerald-300 */
+      }
+      .dark .bg-emerald-55,
+      .dark .bg-emerald-50\/70,
+      .dark .bg-emerald-50\/50,
+      .dark .bg-emerald-50\/30,
+      .dark .bg-emerald-100 {
+        background-color: rgba(16, 185, 129, 0.12) !important;
+        border-color: rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .dark .text-blue-955,
+      .dark .text-blue-950,
+      .dark .text-blue-900,
+      .dark .text-blue-800,
+      .dark .text-blue-700 {
+        color: #93c5fd !important; /* blue-300 */
+      }
+      .dark .bg-blue-50\/70,
+      .dark .bg-blue-50\/50,
+      .dark .bg-blue-50\/30,
+      .dark .bg-blue-100 {
+        background-color: rgba(59, 130, 246, 0.12) !important;
+        border-color: rgba(59, 130, 246, 0.25) !important;
+      }
+
+      .dark .text-purple-955,
+      .dark .text-purple-950,
+      .dark .text-purple-900,
+      .dark .text-purple-800,
+      .dark .text-purple-700 {
+        color: #c084fc !important; /* purple-300 */
+      }
+      .dark .bg-purple-50\/70,
+      .dark .bg-purple-50\/50,
+      .dark .bg-purple-50\/30,
+      .dark .bg-purple-100 {
+        background-color: rgba(139, 92, 246, 0.12) !important;
+        border-color: rgba(139, 92, 246, 0.25) !important;
+      }
+
+      .dark .text-indigo-955,
+      .dark .text-indigo-950,
+      .dark .text-indigo-900,
+      .dark .text-indigo-800,
+      .dark .text-indigo-700 {
+        color: #a5b4fc !important; /* indigo-300 */
+      }
+      .dark .bg-indigo-50\/70,
+      .dark .bg-indigo-50\/50,
+      .dark .bg-indigo-50\/30,
+      .dark .bg-indigo-100 {
+        background-color: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+      }
+
+      .dark .text-orange-955,
+      .dark .text-orange-950,
+      .dark .text-orange-900,
+      .dark .text-orange-850,
+      .dark .text-orange-800,
+      .dark .text-orange-700 {
+        color: #fdba74 !important; /* orange-300 */
+      }
+
+      /* Hover States and Interactive Card Backgrounds in Dark Mode */
+      .dark .hover\:bg-white:hover {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      .dark .hover\:bg-gray-50:hover {
+        background-color: #161e2e !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F9FAFB] dark:bg-slate-950 font-sans text-gray-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-350">
+
+    <!-- Global Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo Section -->
+          <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="bg-amrita-maroon w-12 h-12 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-105 shadow-md">
+              <i class="fa-solid fa-compass text-2xl text-amrita-gold"></i>
+            </div>
+            <div>
+              <span class="block font-display text-xl font-bold text-amrita-maroon tracking-tight">Campus Compass</span>
+              <span class="block font-mono text-[10px] text-gray-500 tracking-wider uppercase">Amrita Amaravati • July 2026</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-1">
+            <a href="index.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Home</a>
+            <a href="academics.html" class="px-3 py-2 text-sm font-medium navigation-link-active transition-colors hover:text-amrita-gold">Academic Life</a>
+            <a href="clubs.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Clubs & Cultural</a>
+            <a href="hostel.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Campus & Hostel</a>
+            <a href="survival.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Survival Kit</a>
+            <a href="tools.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Tech Tools</a>
+          </nav>
+
+          <!-- Right Action Hand -->
+          <div class="hidden lg:flex items-center">
+            <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+              <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+              Freshers Batch July 2026
+            </span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-btn" type="button" class="text-gray-500 hover:text-amrita-maroon focus:outline-none p-2" aria-label="Toggle Navigation">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+        <a href="index.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Home</a>
+        <a href="academics.html" class="block px-4 py-2.5 rounded-md text-sm font-semibold bg-amrita-maroon text-white animate-fade-in">Academic Life</a>
+        <a href="clubs.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Clubs & Cultural</a>
+        <a href="hostel.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Campus & Hostel</a>
+        <a href="survival.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Survival Kit</a>
+        <a href="tools.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Tech Tools</a>
+        <div class="pt-4 border-t border-gray-100 flex items-center justify-center">
+          <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+            <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+            Freshers Batch July 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      
+      <!-- Page Title Header -->
+      <section class="bg-amrita-maroon text-white py-12 border-b border-amrita-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <nav class="flex space-x-2 font-mono text-xs text-amrita-gold mb-3 uppercase">
+                <a href="index.html" class="hover:underline">Home</a>
+                <span>/</span>
+                <span class="text-white">Academic Handbook</span>
+              </nav>
+              <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Academic Life & Regulations</h1>
+              <p class="text-sm sm:text-md text-gray-200 mt-2 max-w-2xl">
+                Amrita is known for high-standard academic systems. Here is exactly how classes run, grades are formulated, and how to avoid the dreaded attendance penalty.
+              </p>
+            </div>
+            <div class="bg-white/10 px-6 py-4 rounded-xl border border-white/10 flex items-center space-x-4">
+              <div class="text-amrita-gold text-3xl"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <div>
+                <span class="block text-xs font-mono uppercase text-gray-300">Daily Timing</span>
+                <span class="block text-sm font-semibold text-white">09:00 AM — 05:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. The Red Alert: The 75% Attendance Rule -->
+      <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-red-50 border-2 border-red-500 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600 text-2xl flex-shrink-0 animate-pulse">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-lg font-bold text-red-900 leading-tight">
+                  The Absolute Law: Strict 75% Attendance Mandate
+                </h3>
+                <p class="text-sm text-red-700 leading-relaxed mt-2 max-w-3xl">
+                  Amrita University enforces a non-negotiable <span class="font-bold underline">75% minimum attendance</span> per course. Failing to meet this metric results in an immediate <span class="font-mono bg-red-200 px-1.5 py-0.5 rounded text-red-900 font-bold">'FA' (Shortage of Attendance)</span> grade. Registering an 'FA' means you are disqualified from writing the End-Sem, and must pay remediation fees to repeat the course in winter/summer fast-track schedules.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white px-5 py-4 rounded-xl border border-red-200 flex flex-col items-center justify-center text-center shadow-sm w-full md:w-auto flex-shrink-0">
+              <span class="text-3xl font-display font-black text-red-600">75.0%</span>
+              <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">Minimum Needed</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Course-wise Schedule Structure -->
+      <section class="py-8 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+            <div>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900">Branch Schedules & Working Hours</h2>
+              <p class="text-sm text-gray-600 mt-1">A curated look at daily timelines for computing specializations.</p>
+            </div>
+            
+            <!-- Branch Selector Tabs (Interactive via basic Javascript) -->
+            <div class="flex flex-wrap gap-2 mt-4 md:mt-0 bg-[#F3F4F6] p-1 rounded-lg">
+              <button onclick="switchBranch('cse')" id="btn-cse" class="branch-tab-active px-4 py-1.5 text-xs font-semibold rounded-md bg-amrita-maroon text-white shadow-sm transition-all">CSE</button>
+              <button onclick="switchBranch('ai')" id="btn-ai" class="px-4 py-1.5 text-xs font-medium rounded-md text-gray-600 hover:text-amrita-maroon transition-all">AI (Artificial Intelligence)</button>
+              <button onclick="switchBranch('ds')" id="btn-ds" class="px-4 py-1.5 text-xs font-medium rounded-md text-gray-600 hover:text-amrita-maroon transition-all">Data Science</button>
+              <button onclick="switchBranch('cce')" id="btn-cce" class="px-4 py-1.5 text-xs font-medium rounded-md text-gray-600 hover:text-amrita-maroon transition-all">CCE (Computer Communication Engineering)</button>
+            </div>
+          </div>
+
+          <!-- Schedule Display Panels -->
+          <div class="bg-[#F9FAFB] border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+            
+            <!-- Timetable header -->
+            <div class="grid grid-cols-12 bg-gray-900 text-white p-4 font-mono text-xs uppercase tracking-wider font-semibold text-center h-12 items-center">
+              <div class="col-span-3 text-left pl-4">Time Slot</div>
+              <div class="col-span-6">Typical Activity & Focus</div>
+              <div class="col-span-3 text-right pr-4">Senior's Side Comment</div>
+            </div>
+
+            <!-- Content Panels body -->
+            <!-- CSE Panel -->
+            <div id="panel-cse" class="branch-panel">
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-amrita-maroon">09:00 AM — 10:30 AM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Period 1 & 2: Main Coding Lectures</span>
+                  <span class="block text-xs text-gray-500">Core DSA foundations and object-oriented paradigms.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Doors lock at 09:01 AM sharp. Don't be late!</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-amrita-maroon">10:30 AM — 12:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Period 3: Math / Analog Circuits</span>
+                  <span class="block text-xs text-gray-500">Applied calculus and Fourier transforms for algorithms.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Bring a dedicated notebook. Stay organized.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-emerald-600">12:00 PM — 01:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900"><i class="fa-solid fa-utensils text-emerald-500 mr-1"></i> Mid-day Lunch Break</span>
+                  <span class="block text-xs text-gray-500">Go to the main mess or cellar canteen quickly to beat the rush.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Warden tip: Cellar outlet is faster if queues are long.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-amrita-maroon">01:00 PM — 03:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Period 4 & 5: Hands-on Labs (C / Unix)</span>
+                  <span class="block text-xs text-gray-500">C and Unix programming execution with peer reviews.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Get lab records signed daily. Do not pile work.</div>
+              </div>
+              <div class="grid grid-cols-12 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-amrita-maroon">03:00 PM — 05:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Period 6 & 7: Industry Electives & Values</span>
+                  <span class="block text-xs text-gray-500">Value-add modules, science lessons, or hardware electives.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Relax and draft your evening studies.</div>
+              </div>
+            </div>
+
+            <!-- AI Panel -->
+            <div id="panel-ai" class="branch-panel hidden">
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-purple-600">09:00 AM — 10:30 AM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Linear Algebra & Stats for AI</span>
+                  <span class="block text-xs text-gray-500">Eigenvectors, matrices, and numerical operations.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Core base for neural models. Pay attention.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-purple-600">10:30 AM — 12:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">AI Paradigms & Python Practice</span>
+                  <span class="block text-xs text-gray-500">Heuristics, search models, and Python scripts.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Run scripts on PyEnv rather than paper-coding.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-emerald-600">12:00 PM — 01:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900"><i class="fa-solid fa-utensils text-emerald-500 mr-1"></i> Lunch Break</span>
+                  <span class="block text-xs text-gray-500">South Indian lunch menu in hostels.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Take a short walk after food to stay active.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-purple-600">01:00 PM — 03:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">AI Python &upyter Labs</span>
+                  <span class="block text-xs text-gray-500">Model execution via Jupyter Notebooks. loss mapping.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Learn basic Git early to track your notebooks.</div>
+              </div>
+              <div class="grid grid-cols-12 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-purple-600">03:00 PM — 05:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-905">Cognitive Workflows & Seminars</span>
+                  <span class="block text-xs text-gray-500">Understanding NLP architectures and smart systems.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Crucial details for future career selections.</div>
+              </div>
+            </div>
+            </div>
+
+            <!-- Data Science Panel -->
+            <div id="panel-ds" class="branch-panel hidden">
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-blue-600">09:00 AM — 10:30 AM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Data Analytics & Databases</span>
+                  <span class="block text-xs text-gray-500">SQL modeling, tabular edits, and normalizations.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">High-scoring topics. Practice SQL queries!</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-blue-600">10:30 AM — 12:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Statistical Formulations & R-Programming</span>
+                  <span class="block text-xs text-gray-500">Hypothesis testing, distributions, and probability.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Keep a scientific calculator handy.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-emerald-600">12:00 PM — 01:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900"><i class="fa-solid fa-utensils text-emerald-500 mr-1"></i> Lunch Break</span>
+                  <span class="block text-xs text-gray-500">Vegetarian lunch in hostel mess.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Eat light. Labs are long.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-blue-600">01:00 PM — 03:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Structured Data Lab (CSV & Excel)</span>
+                  <span class="block text-xs text-gray-500">Massive dataset parsing in standard lab configurations.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Automate parsing using basic Python.</div>
+              </div>
+              <div class="grid grid-cols-12 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-blue-600">03:00 PM — 05:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Communication Skills for Engineers</span>
+                  <span class="block text-xs text-gray-500">Standard reporting templates and engineering documentation.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Direct boost to GPA. Score high here.</div>
+              </div>
+            </div>
+
+            <!-- CCE Panel -->
+            <div id="panel-cce" class="branch-panel hidden">
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-indigo-600">09:00 AM — 10:30 AM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Signals, Systems & DSP Foundations</span>
+                  <span class="block text-xs text-gray-500">Frequency domains, Fourier analyses, and filters.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Strictly master integration/transforms.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-indigo-600">10:30 AM — 12:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Analog & Digital Communication</span>
+                  <span class="block text-xs text-gray-500">Modulations, channel noise estimation, and coding.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Shannon's Theorem appears in every end-sem.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-emerald-600">12:00 PM — 01:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900"><i class="fa-solid fa-utensils text-emerald-500 mr-1"></i> Lunch Break</span>
+                  <span class="block text-xs text-gray-500">Vegetarian dining halls.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Discuss your circuits or simulation codes with peers.</div>
+              </div>
+              <div class="grid grid-cols-12 border-b border-gray-200 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-indigo-600">01:00 PM — 03:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Microcontrollers & IoT Labs</span>
+                  <span class="block text-xs text-gray-500">Flashing ESP32/Arduino boards and sensor wiring.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Handle boards gently; avoid short circuits.</div>
+              </div>
+              <div class="grid grid-cols-12 p-4 items-center hover:bg-gray-50/50">
+                <div class="col-span-3 font-mono text-sm font-semibold text-indigo-600">03:00 PM — 05:00 PM</div>
+                <div class="col-span-6 text-sm text-gray-700">
+                  <span class="block font-semibold text-gray-900">Computer Networks & Routing</span>
+                  <span class="block text-xs text-gray-500">Subnetting and topologies in Cisco Packet Tracer.</span>
+                </div>
+                <div class="col-span-3 text-right text-xs font-medium italic text-gray-500 pr-4">Essential fundamentals for telecom placements.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Continuous Evaluation Structure -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+              Decoding continuous Evaluation (Evaluation Matrix)
+            </h2>
+            <p class="mt-3 text-gray-600">
+              Grades are calculated incrementally throughout the semester. Track your evaluation breakdown:
+            </p>
+          </div>
+
+          <!-- Component Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            
+            <!-- Periodical 1 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50 relative overflow-hidden">
+              <div class="absolute right-4 top-4 text-amrita-maroon/5 text-4xl font-bold font-mono">15%</div>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amrita-maroon/10 text-amrita-maroon font-semibold text-xs mb-4">P1</span>
+              <h4 class="font-display font-bold text-gray-900 text-md">Periodical 1 (P1)</h4>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                4-5 weeks in. Covers units 1 and 2. 45-mark paper scaled down to 15.
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-200/50">
+                <span class="text-[10px] font-mono text-amrita-maroon font-semibold uppercase">Senior Key:</span>
+                <span class="block text-xs text-gray-600 italic">Easiest to score full marks. Study hard!</span>
+              </div>
+            </div>
+
+            <!-- Periodical 2 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50 relative overflow-hidden">
+              <div class="absolute right-4 top-4 text-amrita-maroon/5 text-4xl font-bold font-mono">15%</div>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amrita-maroon/10 text-amrita-maroon font-semibold text-xs mb-4">P2</span>
+              <h4 class="font-display font-bold text-gray-900 text-md">Periodical 2 (P2)</h4>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                conducted around week 10. Covers units 3 and 4. Vast, highly conceptual scope.
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-200/50">
+                <span class="text-[10px] font-mono text-amrita-maroon font-semibold uppercase">Senior Key:</span>
+                <span class="block text-xs text-gray-600 italic">Highly difficult index. Prepare early.</span>
+              </div>
+            </div>
+
+            <!-- Lab Portfolio -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50 relative overflow-hidden">
+              <div class="absolute right-4 top-4 text-amrita-maroon/5 text-4xl font-bold font-mono">30%</div>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amrita-maroon/10 text-amrita-maroon font-semibold text-xs mb-4">CA</span>
+              <h4 class="font-display font-bold text-gray-900 text-md">Continuous Lab/Record</h4>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                Calculated via standard class coding assignments, record neatness, and viva-voce.
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-200/50">
+                <span class="text-[10px] font-mono text-amrita-maroon font-semibold uppercase">Senior Key:</span>
+                <span class="block text-xs text-gray-600 italic">Complete reports on time to secure 30/30.</span>
+              </div>
+            </div>
+
+            <!-- End Sem -->
+            <div class="border border-amrita-gold/20 rounded-xl p-5 bg-amrita-goldLight relative overflow-hidden">
+              <div class="absolute right-4 top-4 text-amrita-gold/15 text-4xl font-bold font-mono">40%</div>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amrita-gold/20 text-amrita-gold font-semibold text-xs mb-4">ES</span>
+              <h4 class="font-display font-bold text-gray-900 text-md">End-Semester Exams</h4>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                Comprehensive semester examination spanning all 5 units. High-stakes weighting.
+              </p>
+              <div class="mt-4 pt-3 border-t border-amrita-gold/30">
+                <span class="text-[10px] font-mono text-amrita-maroon font-semibold uppercase">Senior Key:</span>
+                <span class="block text-xs text-gray-600 italic">Clear definitions first, then tackle algorithms.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Senior's Secret Tip to an 8.5+ CGPA Alert Box -->
+      <section class="py-12 bg-[#F9FAFB] border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-white border border-amrita-gold rounded-2xl overflow-hidden shadow-md flex flex-col md:flex-row">
+            
+            <!-- Icon/Visual pillar of the callout -->
+            <div class="bg-amrita-maroon text-amrita-gold p-8 md:w-1/3 flex flex-col justify-between items-center md:items-start text-center md:text-left">
+              <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-3xl mb-6">
+                <i class="fa-solid fa-key-skeleton"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold leading-tight">Senior's Secret Gold Vault</h3>
+                <p class="text-xs text-gray-300 font-mono mt-1 uppercase">CGPA Strategy 8.5+</p>
+              </div>
+              <div class="hidden md:block pt-4 border-t border-white/10 w-full mt-4 text-[10px] text-gray-400 font-mono">
+                Verified protocol • July 2026 Batch
+              </div>
+            </div>
+
+            <!-- Detail list -->
+            <div class="p-8 md:w-2/3 space-y-6">
+              <h4 class="font-display text-xl font-extrabold text-gray-900">
+                "Shraddha" is Your Leverage: The 4-step Golden Method
+              </h4>
+              <ul class="space-y-4 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <div class="w-6 h-6 rounded-full bg-amrita-goldLight flex items-center justify-center text-amrita-maroon font-bold text-xs mr-3 flex-shrink-0">1</div>
+                  <div>
+                    <strong class="text-gray-900 block">Treat P1 Exams Like Gold Dust</strong>
+                    P1 syllabus is brief. Earning 13+/15 in P1 is much easier than in P2. Solid P1 scores ease mid-term pressure.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-6 h-6 rounded-full bg-amrita-goldLight flex items-center justify-center text-amrita-maroon font-bold text-xs mr-3 flex-shrink-0">2</div>
+                  <div>
+                    <strong class="text-gray-900 block">Never Argue Over Lab Observation Submissions</strong>
+                    Get codes checked in the lab session. Consistent, early checks guarantee a full 30/30 in internal evaluation grades.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-6 h-6 rounded-full bg-amrita-goldLight flex items-center justify-center text-amrita-maroon font-bold text-xs mr-3 flex-shrink-0">3</div>
+                  <div>
+                    <strong class="text-gray-900 block">Master the AUMS Trend</strong>
+                    Monitor marks frequently on your student AUMS portal. Solve discrepancies with professors immediately before final locks.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-6 h-6 rounded-full bg-amrita-goldLight flex items-center justify-center text-amrita-maroon font-bold text-xs mr-3 flex-shrink-0">4</div>
+                  <div>
+                    <strong class="text-gray-900 block">Use Faculty Office Hours</strong>
+                    Professors are approachably available. Cleared projects and resolved doubts in their chambers lead to higher evaluations.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-[#111827] text-gray-400 py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800">
+          
+          <!-- Column 1: Info -->
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="bg-amrita-maroon w-8 h-8 rounded flex items-center justify-center text-white">
+                <i class="fa-solid fa-compass text-sm text-amrita-gold"></i>
+              </div>
+              <span class="font-display text-md font-bold text-white tracking-tight">Campus Compass</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              A comprehensive student-led compass and peer-to-peer survival protocol built for the incoming July 2026 Batch of Amrita Vishwa Vidyapeetham, Amaravati. We build. We survive. We lead.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">Campus Portals</h4>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="index.html" class="hover:text-white transition-colors">Home Base</a>
+              <a href="academics.html" class="hover:text-white transition-colors">Academic Life</a>
+              <a href="clubs.html" class="hover:text-white transition-colors">Clubs & Orgs</a>
+              <a href="hostel.html" class="hover:text-white transition-colors">Hostel Rules</a>
+              <a href="survival.html" class="hover:text-white transition-colors">survival Rules</a>
+              <a href="tools.html" class="hover:text-white transition-colors">Tech Portals</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Contact & Meta -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">University Metadata</h4>
+            <p class="text-xs leading-relaxed mb-3">
+              Amrita Vishwa Vidyapeetham, Kunchanapalli, Amaravati, Andhra Pradesh 522501.
+            </p>
+            <div class="flex space-x-3 text-sm">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://amrita.edu" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="Amrita Portal"><i class="fa-solid fa-globe"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono">
+          <p>© 2026 Campus Compass. Created by the Seniors Council.</p>
+          <p class="mt-2 sm:mt-0 text-center sm:text-right">
+            Handcrafted with ❤️ for <span class="text-amrita-gold">July 2026 Batch</span>. Shraddhavan Labhate Jnanam.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive script for switching branches and mobile navbar -->
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      function switchBranch(branchKey) {
+        // Hide all panels
+        document.querySelectorAll('.branch-panel').forEach(p => p.classList.add('hidden'));
+        
+        // Deactivate all buttons
+        const cseBtn = document.getElementById('btn-cse');
+        const aiBtn = document.getElementById('btn-ai');
+        const dsBtn = document.getElementById('btn-ds');
+        const cceBtn = document.getElementById('btn-cce');
+        
+        const buttons = [cseBtn, aiBtn, dsBtn, cceBtn];
+        buttons.forEach(btn => {
+          btn.classList.remove('bg-amrita-maroon', 'text-white', 'shadow-sm', 'branch-tab-active');
+          btn.classList.add('text-gray-600', 'hover:text-amrita-maroon');
+        });
+
+        // Activate selected
+        const activeBtn = document.getElementById('btn-' + branchKey);
+        activeBtn.classList.add('bg-amrita-maroon', 'text-white', 'shadow-sm', 'branch-tab-active');
+        activeBtn.classList.remove('text-gray-600', 'hover:text-amrita-maroon');
+
+        const activePanel = document.getElementById('panel-' + branchKey);
+        activePanel.classList.remove('hidden');
+      }
+    </script>
+
+    <!-- Floating Theme Switcher Widget -->
+    <div id="theme-switcher-widget" class="fixed bottom-6 right-6 z-50">
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-full shadow-lg p-1.5 flex items-center space-x-1.5 transition-all">
+        <button id="theme-btn-light" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Light Mode" aria-label="Light Mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button id="theme-btn-dark" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Dark Mode" aria-label="Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="theme-btn-system" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="System Settings" aria-label="System Settings">
+          <i class="fa-solid fa-desktop"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Control Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightBtn = document.getElementById('theme-btn-light');
+        const darkBtn = document.getElementById('theme-btn-dark');
+        const systemBtn = document.getElementById('theme-btn-system');
+
+        function updateThemeUI(theme) {
+          // Reset button styles
+          [lightBtn, darkBtn, systemBtn].forEach(btn => {
+            if (btn) {
+              btn.className = "w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]";
+            }
+          });
+
+          // Focus the currently active mode
+          let activeBtn;
+          if (theme === 'light') activeBtn = lightBtn;
+          else if (theme === 'dark') activeBtn = darkBtn;
+          else activeBtn = systemBtn;
+
+          if (activeBtn) {
+            if (document.documentElement.classList.contains('dark')) {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-gold text-slate-950 scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            } else {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-maroon text-white scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            }
+          }
+        }
+
+        function setTheme(theme) {
+          localStorage.setItem('theme', theme);
+          
+          if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+
+          updateThemeUI(theme);
+        }
+
+        // Add action handlers
+        if (lightBtn) lightBtn.addEventListener('click', () => setTheme('light'));
+        if (darkBtn) darkBtn.addEventListener('click', () => setTheme('dark'));
+        if (systemBtn) systemBtn.addEventListener('click', () => setTheme('system'));
+
+        // Initialize display state
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        updateThemeUI(currentTheme);
+
+        // Continuous system media listener
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') {
+            setTheme('system');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

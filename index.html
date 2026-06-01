@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Compass | Amrita Amaravati Freshers Handbook</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Immediate Theme Initialization to Prevent Flash of Unstyled Content
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amrita: {
+                maroon: '#800020',
+                maroonHover: '#6a001a',
+                maroonLight: '#fcf2f4',
+                gold: '#D4AF37',
+                goldHover: '#bfa02c',
+                goldLight: '#fdf9eb',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .navigation-link-active {
+        color: #D4AF37;
+        border-bottom: 2px solid #D4AF37;
+      }
+
+      /* Premium Dark Mode Global Overrides */
+      .dark {
+        color-scheme: dark;
+      }
+      .dark body {
+        background-color: #0b0f19 !important;
+        color: #f1f5f9 !important;
+      }
+      .dark header {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+      }
+      .dark #mobile-menu a {
+        color: #e2e8f0 !important;
+      }
+      .dark #mobile-menu a:hover {
+        background-color: #1e293b !important;
+        color: #fff !important;
+      }
+      .dark .bg-white {
+        background-color: #0f172a !important;
+      }
+      .dark .border-gray-100, 
+      .dark .border-gray-200, 
+      .dark .border-gray-200\/80 {
+        border-color: #1e293b !important;
+      }
+      .dark .text-gray-900 {
+        color: #f8fafc !important;
+      }
+      .dark .text-gray-800 {
+        color: #f1f5f9 !important;
+      }
+      .dark .text-gray-750 {
+        color: #cbd5e1 !important;
+      }
+      .dark .text-gray-700 {
+        color: #e2e8f0 !important;
+      }
+      .dark .text-gray-600 {
+        color: #94a3b8 !important;
+      }
+      .dark .text-gray-500 {
+        color: #64748b !important;
+      }
+      .dark .bg-\[\#F9FAFB\] {
+        background-color: #0b0f19 !important;
+      }
+      .dark .border-t {
+        border-color: #1e293b !important;
+      }
+      /* Welcome block and dashboard cards */
+      .dark .bg-\[\#FDFBF7\] {
+        background-color: #111827 !important;
+        border-color: rgba(212, 175, 55, 0.2) !important;
+      }
+      .dark .bg-gray-50 {
+        background-color: #161e2e !important;
+      }
+      .dark .bg-gray-100 {
+        background-color: #1e293b !important;
+      }
+      .dark .bg-orange-50 {
+        background-color: rgba(234, 88, 12, 0.1) !important;
+        color: #ffedd5 !important;
+      }
+      .dark .bg-emerald-50 {
+        background-color: rgba(16, 185, 129, 0.1) !important;
+        color: #d1fae5 !important;
+      }
+      .dark .bg-blue-50 {
+        background-color: rgba(59, 130, 246, 0.1) !important;
+        color: #dbeafe !important;
+      }
+      .dark .bg-purple-50 {
+        background-color: rgba(139, 92, 246, 0.1) !important;
+        color: #f3e8ff !important;
+      }
+      .dark .bg-indigo-50 {
+        background-color: rgba(99, 102, 241, 0.1) !important;
+        color: #e0e7ff !important;
+      }
+      .dark .navigation-link-active {
+        color: #D4AF37 !important;
+        border-bottom-color: #D4AF37 !important;
+      }
+      .dark nav a:not(.navigation-link-active) {
+        color: #cbd5e1 !important;
+      }
+      .dark nav a:not(.navigation-link-active):hover {
+        color: #D4AF37 !important;
+      }
+      .dark .text-gray-950 {
+        color: #f8fafc !important;
+      }
+      /* Hover states for cards */
+      .dark .hover\:shadow-md:hover {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+      }
+      .dark .hover\:-translate-y-1:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      /* High-Accessibility Dark Mode Overrides for University & State Badges */
+      .dark .text-amrita-maroon,
+      .dark .text-\[\#800020\] {
+        color: #ff9fb1 !important; /* Premium WCAG-compliant light rose/maroon */
+      }
+      .dark .bg-amrita-maroonLight {
+        background-color: rgba(128, 0, 32, 0.15) !important;
+        color: #ff9fb1 !important;
+        border-color: rgba(255, 159, 177, 0.2) !important;
+      }
+      .dark .text-amrita-gold {
+        color: #f6d258 !important; /* Saturated gold for high readability */
+      }
+      .dark .bg-amrita-goldLight {
+        background-color: rgba(212, 175, 55, 0.12) !important;
+        color: #f6d258 !important;
+        border-color: rgba(212, 175, 55, 0.25) !important;
+      }
+
+      /* Alert, Stats, Card Background and Text Color Theme Merging adjustments */
+      .dark .text-red-955,
+      .dark .text-red-950,
+      .dark .text-red-900,
+      .dark .text-red-800,
+      .dark .text-red-700 {
+        color: #fca5a5 !important; /* red-300 */
+      }
+      .dark .bg-red-50,
+      .dark .bg-red-50\/70,
+      .dark .bg-red-50\/50,
+      .dark .bg-red-50\/30,
+      .dark .bg-red-100 {
+        background-color: rgba(239, 68, 68, 0.12) !important;
+        border-color: rgba(239, 68, 68, 0.25) !important;
+      }
+
+      .dark .text-emerald-955,
+      .dark .text-emerald-950,
+      .dark .text-emerald-900,
+      .dark .text-emerald-800,
+      .dark .text-emerald-700 {
+        color: #6ee7b7 !important; /* emerald-300 */
+      }
+      .dark .bg-emerald-55,
+      .dark .bg-emerald-50\/70,
+      .dark .bg-emerald-50\/50,
+      .dark .bg-emerald-50\/30,
+      .dark .bg-emerald-100 {
+        background-color: rgba(16, 185, 129, 0.12) !important;
+        border-color: rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .dark .text-blue-955,
+      .dark .text-blue-950,
+      .dark .text-blue-900,
+      .dark .text-blue-800,
+      .dark .text-blue-700 {
+        color: #93c5fd !important; /* blue-300 */
+      }
+      .dark .bg-blue-50\/70,
+      .dark .bg-blue-50\/50,
+      .dark .bg-blue-50\/30,
+      .dark .bg-blue-100 {
+        background-color: rgba(59, 130, 246, 0.12) !important;
+        border-color: rgba(59, 130, 246, 0.25) !important;
+      }
+
+      .dark .text-purple-955,
+      .dark .text-purple-950,
+      .dark .text-purple-900,
+      .dark .text-purple-800,
+      .dark .text-purple-700 {
+        color: #c084fc !important; /* purple-300 */
+      }
+      .dark .bg-purple-50\/70,
+      .dark .bg-purple-50\/50,
+      .dark .bg-purple-50\/30,
+      .dark .bg-purple-100 {
+        background-color: rgba(139, 92, 246, 0.12) !important;
+        border-color: rgba(139, 92, 246, 0.25) !important;
+      }
+
+      .dark .text-indigo-955,
+      .dark .text-indigo-950,
+      .dark .text-indigo-900,
+      .dark .text-indigo-800,
+      .dark .text-indigo-700 {
+        color: #a5b4fc !important; /* indigo-300 */
+      }
+      .dark .bg-indigo-50\/70,
+      .dark .bg-indigo-50\/50,
+      .dark .bg-indigo-50\/30,
+      .dark .bg-indigo-100 {
+        background-color: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+      }
+
+      .dark .text-orange-955,
+      .dark .text-orange-950,
+      .dark .text-orange-900,
+      .dark .text-orange-850,
+      .dark .text-orange-800,
+      .dark .text-orange-700 {
+        color: #fdba74 !important; /* orange-300 */
+      }
+
+      /* Hover States and Interactive Card Backgrounds in Dark Mode */
+      .dark .hover\:bg-white:hover {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      .dark .hover\:bg-gray-50:hover {
+        background-color: #161e2e !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F9FAFB] dark:bg-slate-950 font-sans text-gray-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-350">
+
+    <!-- Global Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo Section -->
+          <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="bg-amrita-maroon w-12 h-12 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-105 shadow-md">
+              <i class="fa-solid fa-compass text-2xl text-amrita-gold animate-spin-slow"></i>
+            </div>
+            <div>
+              <span class="block font-display text-xl font-bold text-amrita-maroon tracking-tight">Campus Compass</span>
+              <span class="block font-mono text-[10px] text-gray-500 tracking-wider uppercase">Amrita Amaravati • July 2026</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-1">
+            <a href="index.html" class="px-3 py-2 text-sm font-medium navigation-link-active transition-colors hover:text-amrita-gold">Home</a>
+            <a href="academics.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Academic Life</a>
+            <a href="clubs.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Clubs & Cultural</a>
+            <a href="hostel.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Campus & Hostel</a>
+            <a href="survival.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Survival Kit</a>
+            <a href="tools.html" class="px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-amrita-maroon">Tech Tools</a>
+          </nav>
+
+          <!-- Right Action Hand -->
+          <div class="hidden lg:flex items-center">
+            <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+              <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+              Freshers Batch July 2026
+            </span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-btn" type="button" class="text-gray-500 hover:text-amrita-maroon focus:outline-none p-2" aria-label="Toggle Navigation">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-lg transition-transform duration-300">
+        <a href="index.html" class="block px-4 py-2.5 rounded-md text-sm font-semibold bg-amrita-maroon text-white">Home</a>
+        <a href="academics.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Academic Life</a>
+        <a href="clubs.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Clubs & Cultural</a>
+        <a href="hostel.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Campus & Hostel</a>
+        <a href="survival.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Survival Kit</a>
+        <a href="tools.html" class="block px-4 py-2.5 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-amrita-maroon">Tech Tools</a>
+        <div class="pt-4 border-t border-gray-100 flex items-center justify-center">
+          <span class="inline-flex items-center px-4 py-2 border border-amrita-gold/30 rounded-full text-xs font-semibold text-amrita-maroon bg-amrita-goldLight">
+            <i class="fa-solid fa-calendar-days mr-2 text-amrita-gold"></i>
+            Freshers Batch July 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      
+      <!-- Hero Section -->
+      <section class="relative min-h-[75vh] flex items-center bg-cover bg-center text-white py-20 lg:py-28 overflow-hidden" style="background-image: url('/src/assets/images/campus_bg_1780303973818.png');">
+        <!-- Overlay for gorgeous branding brand colors & full text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-amrita-maroon/95 via-amrita-maroon/85 to-[#4a0012]/40 lg:from-amrita-maroon/95 lg:via-amrita-maroon/80 lg:to-[#4a0012]/20"></div>
+        <div class="absolute inset-0 bg-black/25"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full animate-fade-in">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center space-x-2 bg-amrita-gold/25 text-amrita-gold border border-amrita-gold/30 px-3 py-1.5 rounded-full mb-6 font-mono text-xs font-semibold tracking-wide uppercase shadow-sm">
+              <i class="fa-solid fa-sparkles"></i>
+              <span>Official Peer handbook</span>
+            </div>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none mb-6">
+              Welcome, Freshers of <span class="text-amrita-gold">July 2026</span>!
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-100 max-w-2xl leading-relaxed font-light mb-8">
+              Welcome to Amrita Amaravati! Dominate your academic journey, campus housing, and coding milestones with this custom-tailored senior guide.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#welcome-letter" class="inline-flex items-center justify-center px-6 py-3 bg-amrita-gold hover:bg-amrita-goldHover text-amrita-maroon rounded-lg text-sm font-semibold shadow-lg transition-transform hover:-translate-y-0.5">
+                Read Senior's Letter
+                <i class="fa-solid fa-envelope-open mr-2 ml-2"></i>
+              </a>
+              <a href="#quick-access" class="inline-flex items-center justify-center px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-white/20 rounded-lg text-sm font-medium transition-all">
+                Explore the Sections
+                <i class="fa-solid fa-arrow-down ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Decorative subtle grid background lines -->
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F9FAFB] to-transparent"></div>
+      </section>
+
+      <!-- Welcome Letter from Seniors -->
+      <section id="welcome-letter" class="py-16 bg-white scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-[#FDFBF7] border border-amrita-gold/15 rounded-2xl p-8 sm:p-12 shadow-sm relative overflow-hidden">
+            <!-- Decorative quote icon -->
+            <div class="absolute right-8 top-8 text-amrita-gold/10 text-8xl font-serif select-none pointer-events-none">
+              “
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-6">
+              <div class="w-12 h-12 rounded-full bg-amrita-maroon/10 flex items-center justify-center text-amrita-maroon text-xl font-bold">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-gray-900 leading-tight">An Empathetic Word from Your Seniors</h3>
+                <p class="font-mono text-xs text-gray-500">Amrita CSE Senior Circle, July 2026 Batch Liaison</p>
+              </div>
+            </div>
+
+            <div class="prose max-w-none text-gray-600 leading-relaxed space-y-4">
+              <p class="font-semibold text-amrita-maroon text-lg">
+                Greetings Junior! Take a deep breath. You belong here.
+              </p>
+              <p>
+                Stepping onto campus on day one is surreal and can feel overwhelming. We stood exactly where you are now and felt the same nervousness.
+              </p>
+              <p>
+                Amrita Amaravati offers state-of-the-art tech infrastructure. While academic rigor is intense and the 75% attendance rule is strictly non-negotiable, a supportive community of peers and faculty awaits you.
+              </p>
+              <p>
+                We built **Campus Compass** to save you from beginner mistakes. No promotional fluff—just practical, senior-certified blueprints to excel in academics, hostel life, and clubs.
+              </p>
+              <p class="font-medium text-gray-900">
+                Explore the guides, leverage your resources, and build a stellar career. Find us in the labs whenever you need support!
+              </p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="flex items-center space-x-3">
+                <div class="font-mono text-xs text-gray-500">
+                  <span class="block text-gray-400">Written with love</span>
+                  <span class="font-semibold text-amrita-maroon">Amaravati Senior Student Council</span>
+                </div>
+              </div>
+              <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=senior" alt="Senior Avatar" class="w-10 h-10 rounded-full border border-gray-200 bg-white" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Grid / Quick Access Gateways -->
+      <section id="quick-access" class="py-16 bg-[#F9FAFB] border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="font-display text-3xl font-bold text-gray-900 tracking-tight">
+              The Five Pillars of Campus Navigation
+            </h2>
+            <p class="mt-3 text-gray-600">
+              Each portal contains specialized, real-world blueprints authored by your immediate seniors. Click a card to begin your briefing.
+            </p>
+          </div>
+
+          <!-- Grid Dashboard -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Academic Life (academics.html) -->
+            <a href="academics.html" class="group bg-white border border-gray-200/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amrita-gold/50 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-5 transition-colors group-hover:bg-amrita-maroon group-hover:text-white">
+                  <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-gray-900 group-hover:text-amrita-maroon transition-colors mb-2">
+                  1. Academic Life & Rules
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                  Master the 9:00 AM timetable, get the secret to the 75% attendance rule, ace P1 & P2 exams, and secure an 8.5+ CGPA.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-amrita-maroon group-hover:text-amrita-gold transition-colors">
+                <span>Access Lecture Manual</span>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </a>
+
+            <!-- Card 2: Clubs & Extracurriculars (clubs.html) -->
+            <a href="clubs.html" class="group bg-white border border-gray-200/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amrita-gold/50 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 transition-colors group-hover:bg-amrita-maroon group-hover:text-white">
+                  <i class="fa-solid fa-users-gear text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-gray-900 group-hover:text-amrita-maroon transition-colors mb-2">
+                  2. Clubs & Extracurriculars
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                  Navigate tech clubs (Coding, Hackathons, WebDev) and vibrant cultural societies. Learn exactly when recruitments launch.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-amrita-maroon group-hover:text-amrita-gold transition-colors">
+                <span>Browse Student Clubs</span>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </a>
+
+            <!-- Card 3: Campus & Hostel Life (hostel.html) -->
+            <a href="hostel.html" class="group bg-white border border-gray-200/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amrita-gold/50 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5 transition-colors group-hover:bg-amrita-maroon group-hover:text-white">
+                  <i class="fa-solid fa-hotel text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-gray-900 group-hover:text-amrita-maroon transition-colors mb-2">
+                  3. Hostel & Campus Layouts
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                  Explore room rules, mess timings, the 9:00 PM curfew, high-speed Wi-Fi onboarding, and a complete pre-arrival packing list.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-amrita-maroon group-hover:text-amrita-gold transition-colors">
+                <span>View Hostel Protocol</span>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </a>
+
+            <!-- Card 4: Survival Kit (survival.html) -->
+            <a href="survival.html" class="group bg-white border border-gray-200/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amrita-gold/50 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5 transition-colors group-hover:bg-amrita-maroon group-hover:text-white">
+                  <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-gray-900 group-hover:text-amrita-maroon transition-colors mb-2">
+                  4. The Freshers' Survival Kit
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                  An actionable matrix of high-priority Do's and Don'ts to survive peer pressure, master sleep hygiene, and manage newfound freedom.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-amrita-maroon group-hover:text-amrita-gold transition-colors">
+                <span>Read Survival Matrix</span>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </a>
+
+            <!-- Card 5: Tech Tools (tools.html) -->
+            <a href="tools.html" class="group bg-white border border-gray-200/80 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amrita-gold/50 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-5 transition-colors group-hover:bg-amrita-maroon group-hover:text-white">
+                  <i class="fa-solid fa-terminal text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-gray-900 group-hover:text-amrita-maroon transition-colors mb-2">
+                  5. Must-Have Tech Tools
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                  Instant manuals to configure AUMS, Amrita CMS (Moodle), and clear steps to secure placement opportunities early.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-amrita-maroon group-hover:text-amrita-gold transition-colors">
+                <span>Install Tech Suite</span>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </a>
+
+            <!-- Special Visual Encouragement Card -->
+            <div class="bg-gradient-to-br from-amrita-maroon/5 to-amrita-maroon/10 border border-amrita-maroon/10 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="inline-block text-amrita-maroon mb-4">
+                  <i class="fa-solid fa-quote-left text-2xl"></i>
+                </div>
+                <p class="text-sm font-medium italic text-gray-700 leading-relaxed mb-4">
+                  "The beautiful thing about learning is that no one can take it away from you."
+                </p>
+                <p class="font-mono text-xs text-gray-500">— Amma, Sri Mata Amritanandamayi Devi</p>
+              </div>
+              <div class="pt-4 border-t border-amrita-maroon/10 text-xs font-medium text-amrita-maroon flex items-center justify-between">
+                <span>Satyamev Jayate</span>
+                <i class="fa-solid fa-om text-amrita-gold text-lg"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions Section -->
+      <section class="py-16 bg-[#F3F4F6]/40 border-t border-b border-gray-100" id="faq-section">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Header -->
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="font-mono text-xs text-amrita-maroon font-extrabold uppercase tracking-widest">Student Help Desk</span>
+            <h2 class="font-display text-3xl font-extrabold text-gray-900 tracking-tight mt-1">Frequently Asked Questions</h2>
+            <p class="text-sm text-gray-600 mt-2">
+              Everything you need to know about navigating hostel rules, finding transport, and booking weekend outings.
+            </p>
+          </div>
+
+          <!-- FAQ Categories Container -->
+          <div class="space-y-10">
+
+            <!-- Category Component 1: Hostel Logistics -->
+            <div class="bg-white border border-gray-150 rounded-2xl p-6 shadow-sm">
+              <h3 class="font-display font-bold text-lg text-amrita-maroon flex items-center mb-6 pb-2 border-b border-gray-100">
+                <i class="fa-solid fa-hotel mr-3 text-amrita-gold text-md"></i>
+                Hostel Logistics & Rules
+              </h3>
+              <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>What is the laundry schedule and how do I submit my clothes?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                      Your block gets bi-weekly slots. Bring your stamped mesh laundry bag (provided at room allotment). Wash and dry cycles are fully covered in hostel fees. Ironing carries nominal fees at campus stores.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>Can I bring electrical appliances like kettles or induction stoves?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <div class="text-xs text-gray-700 space-y-2">
+                      <p class="font-bold text-red-800 uppercase tracking-wide">⚠️ Strict CSO Policy Announcement Summary:</p>
+                      <div class="bg-red-50/80 border border-red-150 p-4 rounded-xl text-red-950 font-sans leading-relaxed">
+                        <p class="text-center font-bold text-xs mb-1">🙏 Om Namah Shivaya 🙏</p>
+                        <p class="text-center font-bold font-mono text-[10px] text-gray-650 uppercase border-b border-red-100 pb-2 mb-2">Regarding bringing/using Unauthorized Electrical Appliances in Campus</p>
+                        <p class="font-semibold mb-1 text-red-900">Dear Students,</p>
+                        <p class="mb-2">Please remember that you are <strong>strictly prohibited</strong> from bringing any electrical items exceeding <strong>300 watts</strong> to the campus.</p>
+                        <p class="mb-3 bg-red-100/60 p-2.5 rounded border-l-4 border-red-500 font-bold">Security authorities will permanently confiscate any unauthorized appliances found in the campus area. These items will not be returned to you.</p>
+                        <div class="flex justify-between items-end text-[10px] font-mono text-gray-500 mt-4 leading-none pt-2 border-t border-red-100">
+                          <span>Amaravathi campus</span>
+                          <div class="text-right">
+                            <span class="block font-bold text-red-900">Regards,</span>
+                            <span class="block">CSO</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>What are the daily dining timings and mess hall rules?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <div class="text-xs text-gray-600 leading-relaxed space-y-3">
+                      <p>
+                        Mess Hours: <strong class="text-gray-900 font-semibold">Breakfast</strong> (7:30-9:00 AM), <strong class="text-gray-900 font-semibold">Lunch</strong> (12:00-2:30 PM), <strong class="text-gray-900 font-medium">Snacks</strong> (5:15-6:30 PM), and <strong class="text-gray-900 font-medium">Dinner</strong> (7:00-9:00 PM). Apply for light sick meals (khichdi, curd) via the Warden portal 3 hours before.
+                      </p>
+                      
+                      <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-amber-950 font-sans shadow-sm leading-relaxed">
+                        <strong class="block text-red-700 text-[10px] uppercase font-mono tracking-wider mb-1">⚠️ Urgent Mess Hall Policy Warning:</strong>
+                        <p class="font-bold text-[11px] text-gray-900 mb-1 border-b border-amber-100 pb-1">NOTICE: Mess Hall Policy Reminder</p>
+                        <p class="text-[11px] font-bold text-red-700 bg-red-50 p-2 rounded border-l-3 border-red-500 font-medium">Taking food out of the mess hall is strictly prohibited. Your cooperation is required in following hostel regulations.</p>
+                        <p class="text-[11px] text-gray-800 mt-1 font-semibold">Thank you for your understanding.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Category Component 2: Local Area Transport -->
+            <div class="bg-white border border-gray-150 rounded-2xl p-6 shadow-sm">
+              <h3 class="font-display font-bold text-lg text-amrita-maroon flex items-center mb-6 pb-2 border-b border-gray-100">
+                <i class="fa-solid fa-bus mr-3 text-amrita-gold text-md"></i>
+                Local Area Transport
+              </h3>
+              <div class="space-y-4">
+                
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>How do I travel to Vijayawada or Guntur from the campus?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                      Catch APSRTC buses from Kunchanapalli Main Road Junction (every 15-25 mins) to PNBS Vijayawada or Guntur Central. Alternatively, book shared autos or Ola/Uber directly to the main gate.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>What are the nearest major railway junctions and airports?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                      Closest hubs: Vijayawada Railway Junction (BZA) is 14 km (30 mins), Guntur Junction (GNT) is 25 km. Vijayawada International Airport (VGA) is 32 km. Share taxi bookings are coordinated via Warden boards before term breaks.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Category Component 3: Campus Holiday Schedules -->
+            <div class="bg-white border border-gray-150 rounded-2xl p-6 shadow-sm">
+              <h3 class="font-display font-bold text-lg text-amrita-maroon flex items-center mb-6 pb-2 border-b border-gray-100">
+                <i class="fa-solid fa-calendar-day mr-3 text-amrita-gold text-md"></i>
+                Campus Holiday & Outpass Schedules
+              </h3>
+              <div class="space-y-4">
+                
+                <!-- FAQ Item 6 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>Do hostels remain active during minor national holidays or long weekends?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                      Yes. Hostels, Wi-Fi, and dining remain active during minor state/national holidays. Food schedules might be adjusted slightly. Room vacation is required only during the summer maintenance block (June/July).
+                    </p>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="border border-gray-200/80 rounded-xl overflow-hidden transition-all duration-200 hover:border-amrita-gold/40 hover:shadow-sm">
+                  <button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left font-display text-sm font-semibold text-gray-800 transition-all hover:bg-gray-50 focus:outline-none">
+                    <span>What is the protocol for securing a weekend outpass to visit home?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon text-xs text-gray-400 transition-transform duration-200 ml-4 flex-shrink-0"></i>
+                  </button>
+                  <div class="faq-answer hidden bg-gray-50/50 px-5 py-4 border-t border-gray-100">
+                    <div class="text-xs text-gray-700 space-y-3">
+                      <p class="font-medium text-gray-900 leading-relaxed">
+                        Apply on CMS 24 hours prior with parental verification to get Warden approval, then swipe physical student ID card at the gate.
+                      </p>
+                      
+                      <div class="space-y-2 border-l-2 border-amrita-maroon pl-3 my-2">
+                        <p class="leading-relaxed">
+                          <strong class="text-gray-950 font-semibold block">1. Submit Request:</strong> Apply on CMS at least 24 hours in advance with exact timings.
+                        </p>
+                        <p class="leading-relaxed">
+                          <strong class="text-gray-950 font-semibold block">2. Parental Verification:</strong> Guardians must approve the request via official call, SMS, or app portal.
+                        </p>
+                        <p class="leading-relaxed">
+                          <strong class="text-gray-950 font-semibold block">3. Warden Approval:</strong> Hostel Resident Warden will electronically approve the verified outpass.
+                        </p>
+                        <p class="leading-relaxed">
+                          <strong class="text-gray-950 font-semibold block">4. ID Swipe:</strong> Swipe your physical student ID card at the perimeter gate upon leaving and returning.
+                        </p>
+                      </div>
+
+                      <div class="bg-amber-50/80 border border-amber-200 rounded-lg p-3 text-amber-950 text-[11px] leading-normal font-sans">
+                        <strong class="block text-amber-900 uppercase font-mono tracking-wider mb-1 text-[10px]">💡 Helpful Tips:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                          <li><strong>Timelines:</strong> Apply 24h ahead. Same-day applications are for emergencies only.</li>
+                          <li><strong>Quota:</strong> Limit of 2-3 weekend passes per month.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-[#111827] text-gray-400 py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800">
+          
+          <!-- Column 1: Info -->
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="bg-amrita-maroon w-8 h-8 rounded flex items-center justify-center text-white">
+                <i class="fa-solid fa-compass text-sm text-amrita-gold animate-spin-slow"></i>
+              </div>
+              <span class="font-display text-md font-bold text-white tracking-tight">Campus Compass</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              A comprehensive student-led compass and peer-to-peer survival protocol built for the incoming July 2026 Batch of Amrita Vishwa Vidyapeetham, Amaravati. We build. We survive. We lead.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">Campus Portals</h4>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="index.html" class="hover:text-white transition-colors">Home Base</a>
+              <a href="academics.html" class="hover:text-white transition-colors">Academic Life</a>
+              <a href="clubs.html" class="hover:text-white transition-colors">Clubs & Orgs</a>
+              <a href="hostel.html" class="hover:text-white transition-colors">Hostel Rules</a>
+              <a href="survival.html" class="hover:text-white transition-colors">survival Rules</a>
+              <a href="tools.html" class="hover:text-white transition-colors">Tech Portals</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Contact & Meta -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white tracking-widest uppercase mb-4">University Metadata</h4>
+            <p class="text-xs leading-relaxed mb-3">
+              Amrita Vishwa Vidyapeetham, Kunchanapalli, Amaravati, Andhra Pradesh 522501.
+            </p>
+            <div class="flex space-x-3 text-sm">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://amrita.edu" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-amrita-maroon transition-all" aria-label="Amrita Portal"><i class="fa-solid fa-globe"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono">
+          <p>© 2026 Campus Compass. Created by the Seniors Council.</p>
+          <p class="mt-2 sm:mt-0 text-center sm:text-right">
+            Handcrafted with ❤️ for <span class="text-amrita-gold">July 2026 Batch</span>. Shraddhavan Labhate Jnanam.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Navbar Mobile Toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // FAQ Accordion Toggle Actions
+      const faqButtons = document.querySelectorAll('.faq-btn');
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const answerBlock = btn.nextElementSibling;
+          const chevronIcon = btn.querySelector('.faq-icon');
+          
+          if (answerBlock) {
+            const isCurrentlyHidden = answerBlock.classList.contains('hidden');
+            
+            // Toggle current answer block visibility
+            if (isCurrentlyHidden) {
+              answerBlock.classList.remove('hidden');
+              chevronIcon.classList.add('rotate-180');
+              btn.classList.add('bg-amrita-maroonLight', 'text-amrita-maroon');
+            } else {
+              answerBlock.classList.add('hidden');
+              chevronIcon.classList.remove('rotate-180');
+              btn.classList.remove('bg-amrita-maroonLight', 'text-amrita-maroon');
+            }
+          }
+        });
+      });
+    </script>
+
+    <!-- Floating Theme Switcher Widget -->
+    <div id="theme-switcher-widget" class="fixed bottom-6 right-6 z-50">
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-full shadow-lg p-1.5 flex items-center space-x-1.5 transition-all">
+        <button id="theme-btn-light" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Light Mode" aria-label="Light Mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button id="theme-btn-dark" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="Dark Mode" aria-label="Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="theme-btn-system" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]" title="System Settings" aria-label="System Settings">
+          <i class="fa-solid fa-desktop"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Control Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightBtn = document.getElementById('theme-btn-light');
+        const darkBtn = document.getElementById('theme-btn-dark');
+        const systemBtn = document.getElementById('theme-btn-system');
+
+        function updateThemeUI(theme) {
+          // Reset button styles
+          [lightBtn, darkBtn, systemBtn].forEach(btn => {
+            if (btn) {
+              btn.className = "w-8 h-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-[11px]";
+            }
+          });
+
+          // Focus the currently active mode
+          let activeBtn;
+          if (theme === 'light') activeBtn = lightBtn;
+          else if (theme === 'dark') activeBtn = darkBtn;
+          else activeBtn = systemBtn;
+
+          if (activeBtn) {
+            if (document.documentElement.classList.contains('dark')) {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-gold text-slate-950 scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            } else {
+              activeBtn.className = "w-8 h-8 rounded-full flex items-center justify-center bg-amrita-maroon text-white scale-105 shadow-sm font-semibold transition-all text-[11px]";
+            }
+          }
+        }
+
+        function setTheme(theme) {
+          localStorage.setItem('theme', theme);
+          
+          if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+
+          updateThemeUI(theme);
+        }
+
+        // Add action handlers
+        if (lightBtn) lightBtn.addEventListener('click', () => setTheme('light'));
+        if (darkBtn) darkBtn.addEventListener('click', () => setTheme('dark'));
+        if (systemBtn) systemBtn.addEventListener('click', () => setTheme('system'));
+
+        // Initialize display state
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        updateThemeUI(currentTheme);
+
+        // Continuous system media listener
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') {
+            setTheme('system');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
